@@ -53,6 +53,10 @@ body{
 	text-decoration: none;
 }
 
+.nav a.first{
+	padding-left: 0;
+}
+
 .nav a:hover{
 	background-color: #BCD8F1;
 }
@@ -808,6 +812,7 @@ input.contact-checkbox{
 .footer{
 	padding: 40px 160px 48px 160px;
 	display: flex;
+	flex-direction: column;
     justify-content: center;
 }
 
@@ -825,4 +830,24 @@ input.contact-checkbox{
 
 .footer-navbar .language-change{
 	padding: 0;
+}
+
+.social-icons{
+	height: fit-content;
+	margin: 4px 0 14px 0;
+}
+
+.privacy a{
+	font-size: 12px;
+	color: #333;
+}
+
+.twitter{
+	margin: 0 16px 0 16px;
+}
+
+.copyright{
+	font-family: "Lato";
+	font-size: 12px;
+	margin: 17px 0;
 }
