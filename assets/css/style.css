@@ -25,7 +25,7 @@ body{
     justify-content: center;
 }
 
-.navbar{
+.header .nav{
 	flex: 1;
     display: flex;
     justify-content: flex-end;
@@ -61,7 +61,7 @@ body{
 	background-color: #6cf;
 }
 
-.language-change{
+.header .language-change{
 	padding: 0 40px 0 58px;
     font-family: 'Lato';
 	font-weight: 700;
@@ -688,7 +688,7 @@ div.product-intro{
 .inquires-content{
 	width: 960px;
 	height: fit-content;
-	margin:40px 0 60px 0;
+	margin:40px 0 0 0;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -715,7 +715,7 @@ div.product-intro{
 	width: 354px;
 }
 
-.inquires-classify::before{
+.necessary::before{
 	content: '必須';
 	color:#fff;
 	font-size: 14px;
@@ -727,7 +727,8 @@ div.product-intro{
 
 .inquires-value{
 	width: 100%;
-	flex: 1;
+    flex: 1;
+	box-sizing: border-box;
 }
 
 .inquires-content .first{
@@ -742,61 +743,86 @@ div.product-intro{
 /*the container must be positioned relative:*/
 .inquiry-purpose {
 	position: relative;
+	width: 100%;
+	height: 50px;
   }
   
-  .custom-select select {
-	display: none; /*hide original SELECT element:*/
-  }
-  
-  .select-selected {
-	background-color: DodgerBlue;
-  }
-  
-  /*style the arrow inside the select element:*/
-  .select-selected:after {
-	position: absolute;
-	content: "";
-	top: 14px;
-	right: 10px;
-	width: 0;
-	height: 0;
-	border: 6px solid transparent;
-	border-color: #fff transparent transparent transparent;
-  }
-  
-  /*point the arrow upwards when the select box is open (active):*/
-  .select-selected.select-arrow-active:after {
-	border-color: transparent transparent #fff transparent;
-	top: 7px;
-  }
-  
-  /*style the items (options), including the selected item:*/
-  .select-items div,.select-selected {
-	color: #ffffff;
-	padding: 8px 16px;
-	border: 1px solid transparent;
-	border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
-	cursor: pointer;
-	user-select: none;
-  }
-  
-  /*style items (options):*/
-  .select-items {
-	position: absolute;
-	background-color: DodgerBlue;
-	top: 100%;
-	left: 0;
-	right: 0;
-	z-index: 99;
-  }
-  
-  /*hide the items when the select box is closed:*/
-  .select-hide {
-	display: none;
-  }
-  
-  .select-items div:hover, .same-as-selected {
-	background-color: rgba(0, 0, 0, 0.1);
-  }
+.inquiry-purpose select {
+/*	display: none; /*hide original SELECT element:*/
+	width: 100%;
+	height: 100%;
+	padding: 0 10px 0 10px;
+	font-family: 'Noto Sans CJK JP';
+	font-size: 16px;
+	font-weight: 500;
+	color: #333;
+}
 
-  /*inquiry-purpose Combobox-style end----------*/
+.inquires-value input{
+	width: 100%;
+	height: 50px;
+	box-sizing: border-box;
+	font-family: 'Noto Sans CJK JP';
+	font-size: 16px;
+	font-weight: 500;
+	color: #333;
+	padding: 0 10px 0 10px;
+}
+
+.inquires-value .checkbox{
+	width: 100%;
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    justify-content: flex-start;
+	align-items: center;
+}
+
+input.contact-checkbox{
+	width: 30px;
+	height: 30px;
+	border-radius: 4px;
+	display: flex;
+	margin: 0 10px 0 0;
+}
+
+.inquires-detail{
+	width: 100%;
+	height: 180px;
+	box-sizing: border-box;
+	font-family: 'Noto Sans CJK JP';
+	font-size: 16px;
+	font-weight: 500;
+	color: #333;
+	padding: 12px 20px 12px;
+}
+
+.inuqires .indetail{
+	width: 286px;
+}
+
+.inquires-content .last{
+	padding-bottom: 60px;
+}
+
+.footer{
+	padding: 40px 160px 48px 160px;
+	display: flex;
+    justify-content: center;
+}
+
+.footer-navbar{
+	display: flex;
+	width: 960px;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.footer-navbar .nav{
+	display: flex;
+	justify-content: flex-start;
+}
+
+.footer-navbar .language-change{
+	padding: 0;
+}

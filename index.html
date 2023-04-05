@@ -14,18 +14,16 @@
 			    <img src="assets/images/logo/logo.svg" alt="Logo">
 			</a>
 		</div>
-		<div class="navbar">
-			<div class="nav">
-				<ul>
-					<li><a href="#news">ニュース</a></li>
-					<li><a href="#product-intro">製品紹介</a></li>
-					<li><a href="#usecase">ユースケース</a></li>
-					<li><a href="#delivery-rec">納入実績</a></li>
-					<li><a href="#tech-info">開発者向け技術情報</a></li>
-					<li><a href="#company-profile">会社概要</a></li>
-					<li><a href="#inquires">お問合せ</a></li>
-				</ul>
-			</div>
+		<div class="nav">
+			<ul>
+				<li><a href="#news">ニュース</a></li>
+				<li><a href="#product-intro">製品紹介</a></li>
+				<li><a href="#usecase">ユースケース</a></li>
+				<li><a href="#delivery-rec">納入実績</a></li>
+				<li><a href="#tech-info">開発者向け技術情報</a></li>
+				<li><a href="#company-profile">会社概要</a></li>
+				<li><a href="#inquires">お問合せ</a></li>
+			</ul>
 		</div>
 		<div class="language-change">JP / EN</div>
 	</div>			
@@ -444,9 +442,9 @@
 		</div>
 		<div class="inquires-content">
 			<div class="inquires-record first">
-				<div class="inquires-classify">お問合せの目的<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp(選択して下さい)</div>
+				<div class="inquires-classify necessary">お問合せの目的<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp(選択して下さい)</div>
 				<div class="inquires-value">
-					<div class="inquire-purpose">
+					<div class="inquiry-purpose">
 						<select>
 						  <option value="0">Orb DLTについて詳しく知りたい</option>
 						  <option value="1">Orb DLTについて詳しく知りたい</option>
@@ -458,110 +456,75 @@
 			</div>
 			<hr>
 			<div class="inquires-record">
-				<div class="inquires-classify">創業年月</div>
-				<div class="inquires-value">2014年2月</div>
-			</div>
-			<hr>
-			<div class="inquires-record">
-				<div class="inquires-classify">代表取締役</div>
+				<div class="inquires-classify necessary">会社名/学校名</div>
 				<div class="inquires-value">
-					<div class="representative">
-						<div>代表取締役</div>
-						<div>岡部 正寛</div>
-					</div>
-					<div class="representative">
-						<div>取締役</div>
-						<div>福留 大士</div>
-					</div>
-					<div class="representative">
-						<div>取締役</div>
-						<div>川村 憲一</div>
-					</div>
-					<div class="representative">
-						<div>取締役</div>
-						<div>小泉 司</div>
-					</div>
-					<div class="representative">
-						<div>監査役</div>
-						<div>黒田 淸文</div>
-					</div>
+					<input type="text" placeholder="〇〇株式会社/〇〇学校" id="comp-name-input">
 				</div>
 			</div>
 			<hr>
 			<div class="inquires-record">
-				<div class="inquires-classify">資本金</div>
-				<div class="inquires-value">197,907,905円 (資本準備金含)</div>
-			</div>
-			<hr>
-			<div class="inquires-record">
-				<div class="inquires-classify">所在地</div>
+				<div class="inquires-classify necessary">お名前</div>
 				<div class="inquires-value">
-					<div>〒150-6139 東京都渋谷区渋谷二丁目 24 番 12 号</div>
-					<div>渋谷スクランブルスクエア 39 階 WeWork 内</div>
+					<input type="text" placeholder="山田　太郎" id="inquiry-name">
 				</div>
 			</div>
 			<hr>
 			<div class="inquires-record">
-				<div class="inquires-classify">業務内容</div>
-				<div class="inquires-value">独自の分散型台帳技術「Orb DLT」の研究開発とその関連Fintechソリューションの提供</div>
+				<div class="inquires-classify necessary">メールアドレス</div>
+				<div class="inquires-value">
+					<input type="text" placeholder="Orb@mail.com" id="inquiry-email">
+				</div>
 			</div>
 			<hr>
 			<div class="inquires-record">
-				<div class="inquires-classify">電話番号</div>
-				<div class="inquires-value">03-6230-9873</div>
+				<div class="inquires-classify necessary">電話番号</div>
+				<div class="inquires-value">
+					<input type="text" placeholder="000-0000-0000" id="inquiry-phonenumber">
+				</div>
 			</div>
-			<hr>
 			<div class="inquires-record">
-				<div class="inquires-classify">メール</div>
-				<div class="inquires-value">info@imagine-orb.com</div>
+				<div class="inquires-classify">ご連絡方法について<br>(選択して下さい)</div>
+				<div class="inquires-value">
+					<div class="checkbox">
+						<input class="contact-checkbox" type="checkbox" id="contact-by-phone" name="contact-method1" value="phone">
+						<label for="contact-method1">電話で折り返してほしい</label>
+					</div>
+					<div class="checkbox">
+						<input class="contact-checkbox" type="checkbox" id="contact-by-email" name="contact-method2" value="email">
+						<label for="contact-method2">メールで折り返してほしい</label>
+					</div>
+				</div>
 			</div>
-			<hr>
 			<div class="inquires-record last">
-				<div class="inquires-classify">沿革</div>
+				<div class="inquires-classify">お問合せ内容詳細</div>
 				<div class="inquires-value">
-					<div class="history">
-						<div class="title">2021</div>
-						<div class="content">株式会社トラストバンクのchiica（地域通貨プラットフォーム）、株式会社まちのわ（九州電力、筑邦銀行、SBIホールディングスのJV）のプレミアム付商品券の電子化ソリューションが、Orb DLTを採用し運用開始。</div>
-					</div>
-					<div class="history">
-						<div class="title">2020</div>
-						<div class="content">株式会社トラストバンク（ふるさと納税サイト「ふるさとチョイス」の運営）が筆頭株主となり、代表取締役社長に岡部正寛が就任。
-						</div>
-					</div>
-					<div class="history">
-						<div class="title">2018</div>
-						<div class="content">UCカード株式会社様とお台場にて利用可能な地域通貨「UC台場コイン」の実証実験をスタート。SBIホールディングス株式会社様と六本木にて利用可能な「Sコイン」の実証実験をスタート。北海道ニセコひらふで利用可能な地域通貨「NISEKO Pay」をスタート
-							
-						</div>
-					</div>
-					<div class="history">
-						<div class="title">2017</div>
-						<div class="content">ブロックチェーンと分散型データベースのハイブリットモデルによる独自の分散型台帳技術「Orb DLT」を4月24日にリリース。
-							<br><br>SBIホールディングス株式会社様とSコインプラットフォームのプロジェクトをスタート
-						</div>
-					</div>
-					<div class="history">
-						<div class="title">2016</div>
-						<div class="content">代表仲津がブロックチェーン協会（JBA）理事就任。
-							<br>株式会社山陰合同銀行とコミュニティ仮想通貨の実証実験を実施。</div>
-					</div>
-					<div class="history">
-						<div class="title">2015</div>
-						<div class="content">株式会社Orbに社名を変更。 ブロックチェーンを応用した独自の分散型台帳技術「Orb1」をリリース。</div>
-					</div>
-					<div class="history last">
-						<div class="title">2014</div>
-						<div class="content">EC向けビットコイン決済サービスを主目的として株式会社コインパスを設立。 EC事業者向けのビットコイン決済サービス（CoinPass決済）をリリース。</div>
-					</div>
+					<textarea class="inquires-detail" placeholder="入力してください" id="inquiry-detail"></textarea>
 				</div>
 			</div>
-			<hr>
-		</div>
-		<div class="map">
-			map
+			<div class="indetail">
+				<button class="button">送信内容を確認する</button>
+			</div>
 		</div>
 	</div>
 <!--Inquires-profile section end-->
 
+<!--Header section start-->
+	<div class="footer">
+		<div class="footer-navbar">
+			<div class="nav">
+				<ul>
+					<li><a href="#news">ニュース</a></li>
+					<li><a href="#product-intro">製品紹介</a></li>
+					<li><a href="#usecase">ユースケース</a></li>
+					<li><a href="#delivery-rec">納入実績</a></li>
+					<li><a href="#tech-info">開発者向け技術情報</a></li>
+					<li><a href="#company-profile">会社概要</a></li>
+					<li><a href="#inquires">お問合せ</a></li>
+				</ul>
+			</div>
+			<div class="language-change">JP / EN</div>
+		</div>
+	</div>
+<!--Header section end-->
 </body>
 </html>
