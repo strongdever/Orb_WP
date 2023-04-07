@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Orb</title>
 	<link rel="stylesheet" href="assets/css/style.css">
+	<script src="assets/js/custom.js"></script>
 </head>
 <body>
 <!--header start-->
@@ -63,37 +64,43 @@
 		<div class="section-content">
 			<br>
 			<br>
-			<div class="section-item">
-				<h4>xxxx年xx月xx日</h4>
-				<div class="news-button-group">
-					<button class="button">カテゴリー</button>
-					<button class="button">カテゴリー</button>
-					<button class="button">カテゴリー</button>
+			<a class="news-category" href="#news-popup-overlay">
+				<div class="section-item">
+					<h4>xxxx年xx月xx日</h4>
+					<div class="news-category-group">
+						<div class="category">カテゴリー</div>
+						<div class="category">カテゴリー</div>
+						<div class="category">カテゴリー</div>
+					</div>
+					<div class="news-article">ここにニュースが入りますここにニュースが入りますここにニュースが入りますここにニュースが入ります</div>
 				</div>
-				<div class="news-article">ここにニュースが入りますここにニュースが入りますここにニュースが入りますここにニュースが入ります</div>
-			</div>
-			<div class="section-item">
-				<h4>xxxx年xx月xx日</h4>
-				<div class="news-button-group">
-					<button class="button">カテゴリー</button>
-					<button class="button">カテゴリー</button>
-					<button class="button">カテゴリー</button>
+			</a>
+			<a class="news-category" href="#news-popup-overlay">
+				<div class="section-item">
+					<h4>xxxx年xx月xx日</h4>
+					<div class="news-category-group">
+						<div class="category">カテゴリー</div>
+						<div class="category">カテゴリー</div>
+						<div class="category">カテゴリー</div>
+					</div>
+					<div class="news-article">ここにニュースが入りますここにニュースが入りますここにニュースが入りますここにニュースが入ります</div>
 				</div>
-				<div class="news-article">ここにニュースが入りますここにニュースが入りますここにニュースが入りますここにニュースが入ります</div>
-			</div>
-			<div class="section-item">
-				<h4>xxxx年xx月xx日</h4>
-				<div class="news-button-group">
-					<button class="button">カテゴリー</button>
-					<button class="button">カテゴリー</button>
-					<button class="button">カテゴリー</button>
+			</a><a class="news-category" href="#news-popup-overlay">
+				<div class="section-item">
+					<h4>xxxx年xx月xx日</h4>
+					<div class="news-category-group">
+						<div class="category">カテゴリー</div>
+						<div class="category">カテゴリー</div>
+						<div class="category">カテゴリー</div>
+					</div>
+					<div class="news-article">ここにニュースが入りますここにニュースが入りますここにニュースが入りますここにニュースが入ります</div>
 				</div>
-				<div class="news-article">ここにニュースが入りますここにニュースが入りますここにニュースが入りますここにニュースが入ります</div>
-			</div>
+			</a>
 		</div>
 		<div class="indetail">
 			<button class="button">ニュース一覧はこちら</button>
 		</div>
+
 	</div>
 <!--News section end-->
 
@@ -193,17 +200,52 @@
 			近年の日本市場では、独自経済圏構築をキーワードに、独自通貨（独自決済/独自PAY）構築に向けた取組みが、企業や自治体、様々なコミュニティで始まっております。多様なコミュニティの中で、各々が独自通貨を活用して、コミュニティの活性化やマーケティングが可能な「独自通貨エコノミー」が浸透しつつあります。
 		</div>
 		<div class="tabs">
-			<button class="tabs-button tab1">地域通貨/エリア通貨</button>
-			<button class="tabs-button tab2">企業グループ通貨</button>
-			<button class="tabs-button tab3">テーマ通貨/イベント通貨</button>
+			<button class="tabs-button tab1" onclick="openUsecase(event, 'usecase1')">地域通貨/エリア通貨</button>
+			<button class="tabs-button tab2" onclick="openUsecase(event, 'usecase2')">企業グループ通貨</button>
+			<button class="tabs-button tab3" onclick="openUsecase(event, 'usecase3')">テーマ通貨/イベント通貨</button>
 		</div>
-		<div class="tab-content">
-			<div>日本は、人口減少による地域の過疎化や高齢化の課題に直面しています。その地域を活性化させることこそが日本全体を活性化させる最も重要な打手と言われています。こうした環境で、地域通貨/エリア通貨は、地域内のお金、モノ、サービスの循環を最大化し、地域の経済活性化を実現することを目的としています。
+		<div class="tab-content first" id="usecase1">
+			<div class="tab-content-fade">
+				<div>日本は、人口減少による地域の過疎化や高齢化の課題に直面しています。その地域を活性化させることこそが日本全体を活性化させる最も重要な打手と言われています。こうした環境で、地域通貨/エリア通貨は、地域内のお金、モノ、サービスの循環を最大化し、地域の経済活性化を実現することを目的としています。<br><br>
+				</div>
+				<div>
+					<img src="assets/images/usecase1.jpg" alt="Usecase1">
+				</div>
+				<div><br>地域通貨は、自治体や地域の金融機関などが発行主体となり、地域内で完結したお金の流れを作りつつ、自治体の給付金やプレミアム付商品券などの電子化や、住民のコミュニケーションの促進に活用したり、観光協会や商工会議所がインバウンド施策として活用したりすることも可能です。
+				</div>
 			</div>
-			<div>
-				<img src="assets/images/usecase.jpg">
+		</div>
+		<div class="tab-content" id="usecase2">
+			<div class="tab-content-fade">
+				<div>企業グループ通貨（自社通貨）とは、様々なシーンで貯まる「〇〇ポイント」、様々な企業が提供している「〇〇PAY」を指します。企業グループの複数事業をまたがる顧客に対し、ポイントや決済という共通の顧客接点で纏め上げ、その企業グループの独自経済圏に囲い込み、グループ全体で顧客に価値を提供することを目的としています。その結果、ブランドロイヤリティや企業価値の向上に繋がります。
+					<br><br>
+				</div>
+				<div>また自社通貨のもう一つのメリットは、他決済サービスへの決済手数料の費用削減と、本来自社の顧客のデータである決済データを、自社で保有・活用が可能となることです。
+					<br><br>
+				</div>
+				<div>例えば、複数の事業を持つ大手不動産会社であれば、高級マンションを購買した高所得層の顧客にグループ共通で使える自社通貨/ポイントを発行し、自社リゾートホテル/ゴルフ場などの利用促進や、自社ショッピング施設での利用促進を図ります。更には、その顧客の利用・購買データを活用してその顧客の望むサービスを更に提案していくことも可能となります。
+					<br><br>
+				</div>
+				<div>
+					<img src="assets/images/usecase2.jpg" alt="Usecase2">
+				</div>
 			</div>
-			<div>地域通貨は、自治体や地域の金融機関などが発行主体となり、地域内で完結したお金の流れを作りつつ、自治体の給付金やプレミアム付商品券などの電子化や、住民のコミュニケーションの促進に活用したり、観光協会や商工会議所がインバウンド施策として活用したりすることも可能です。
+		</div>
+		<div class="tab-content" id="usecase3">
+			<div class="tab-content-fade">
+				<div>スポーツ業界では、お気に入りのスポーツチームが発行するデジタル通貨を保有して特典を受けたりチーム運営に関わりを持ったりする「ファントークン」の導入が世界的に注目を集めています。これは、チケット抽選、オフィシャルグッズのキャッシュバック、フォトコンテストやクイズへの参加権利、ユニフォームのデザインや選手の入場曲を決める時の保有者限定投票への参加権利などに使われ、スポーツファンの間で人気となっています。この「ファントークン」に決済機能を追加することで、スタジアムの店舗などで使用可能な独自通貨にすることもできます。<br><br>
+				</div>
+				<div>エンターテイメント業界では、年会費で運営されているファンクラブに「〇〇ファンクラブコイン」を発行することで、ファン歴にプレミアムを付けるなど、プレミアム感溢れる商品提供や、ライブ動画配信を通じての投げ銭での応援のようなファンクラブ内での経済化を図ります。芸能プロダクションやタレント事務所は、所属するアーティストやタレントを横断する形でのコイン発行を実現できれば、若手のプロモーションやファンを取り込むことにも繋がるでしょう。<br><br>
+				</div>
+				<div>その他の例えとして、クラフトビール好き(ファン)が集まるコミュニティでの「〇〇ビールコイン」の発行。そのコミュニティで交わされる様々なビールにまつわる情報共有とそこに集まる人々の交流だけでなく、クラフトビールの生産者との交流、関連商品の販売、ファンによる関連商品開発や新しい飲み方提案など、コミュニティの活性化への道筋を作ります。<br><br>
+				</div>
+				<div>日本は、人口減少による地域の過疎化や高齢化の課題に直面しています。その地域を活性化させることこそが日本全体を活性化させる最も重要な打手と言われています。こうした環境で、地域通貨/エリア通貨は、地域内のお金、モノ、サービスの循環を最大化し、地域の経済活性化を実現することを目的としています。<br><br>
+				</div>
+				<div>
+					<img src="assets/images/usecase3.jpg" alt="Usecase3">
+				</div>
+				<div><br>地域通貨は、自治体や地域の金融機関などが発行主体となり、地域内で完結したお金の流れを作りつつ、自治体の給付金やプレミアム付商品券などの電子化や、住民のコミュニケーションの促進に活用したり、観光協会や商工会議所がインバウンド施策として活用したりすることも可能です。
+				</div>
 			</div>
 		</div>
 	</div>
@@ -533,5 +575,36 @@
 		<div class="copyright">Copyright © 2023 Orb Inc. All rights reserved.</div>
 	</div>
 <!--Header section end-->
+<!--News Popup start-->
+	<div class="news-popup-overlay" id="news-popup-overlay">
+		<div class="news-popup">
+			<div class="popup-close-section">
+				<a class="popup-close" href="#news">
+					<span>&times;</span>
+				</a>
+				<div class="close-text">閉じる</div>
+			</div>
+			<div class="news-content">
+				<div class="news-header">ここにニュースが入りますここにニュースが入りますここにニュースが入ります</div>
+				<div class="section-item first">
+					<h4>xxxx年xx月xx日</h4>
+					<div class="news-category-group">
+						<div class="category">カテゴリー</div>
+						<div class="category">カテゴリー</div>
+						<div class="category">カテゴリー</div>
+					</div>
+					<div class="news-article">ここにニュースが入りますここにニュースが入りますここにニュースが入りますここにニュースが入りますここにニュースが入りますここにニュースが入りますここにニュースが入りますここにニュースが入りますここにニュースが入りますここにニュースが入りますここにニュースが入りますここにニュースが入ります
+					<br>
+					<br>
+					ここにニュースが入りますここにニュースが入りますここにニュースが入りますここにニュースが入りますここにニュースが入りますここにニュースが入りますここにニュースが入りますここにニュースが入りますここにニュースが入りますここにニュースが入りますここにニュースが入りますここにニュースが入りますここにニュースが入りますここにニュースが入りますここにニュースが入りますここにニュースが入りますここにニュースが入りますここにニュースが入りますここにニュースが入りますここにニュースが入ります
+					<br>
+					<br>	
+					ここにニュースが入りますここにニュースが入りますここにニュースが入りますここにニュースが入りますここにニュースが入りますここにニュースが入りますここにニュースが入りますここにニュースが入りますここにニュースが入りますここにニュースが入りますここにニュースが入りますここにニュースが入りますここにニュースが入りますここにニュースが入りますここにニュースが入りますここにニュースが入ります
+					</div>
+				</div>				
+			</div>
+		</div>
+	</div>
+<!--News Popup End-->
 </body>
 </html>

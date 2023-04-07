@@ -1,3 +1,6 @@
+html{
+	scroll-behavior: smooth;
+}
 
 body{
 	font-family: 'Noto Sans CJK JP';
@@ -7,6 +10,11 @@ body{
 	color: #333;
 	margin: 0;
 	line-height: 24px;
+	background-size: cover;
+}
+
+*{
+	box-sizing: border-box;
 }
 
 .header{
@@ -49,19 +57,29 @@ body{
 	display: block;
 	color: #333;
 	text-align: center;
-	padding: 14px 16px;
+	cursor: pointer;
+	padding: 8px 16px;
+	transition: 0.5s;
 	text-decoration: none;
 }
 
+.nav a:hover{
+	background-color: #ddd;
+}
+
+.nav a:active{
+	background-color: #ccc;
+}
+
 .nav a.first{
-	padding-left: 0;
+	margin-left: -16px;
 }
 
 .nav a:hover{
 	background-color: #BCD8F1;
 }
 
-.active {
+active {
 	background-color: #6cf;
 }
 
@@ -156,8 +174,8 @@ h3{
 
 h4{
 	font-size: 16px;
-	font-weight: bold;
-	color: #333333;
+	font-weight: 500;
+	color: #333;
 	margin: 0;
 }
 
@@ -206,9 +224,10 @@ hr{
 	padding: 0 23px 0 23px;
 }
 
-.section-item div{
+.news-article{
 	height: auto;
 	font-size: 14px;
+	color: #333;
 	font-weight: 500;
 	line-height: 24px;
 }
@@ -225,12 +244,28 @@ hr{
     justify-content: center;
 }
 
-.news-button-group button{
-	margin: 15px 15 15px 0;
-	padding: 1px 3px 1px 3px;
+.news-category-group{
+	display: flex;
+	flex-direction: row;
+}
+
+.news-category{
+	text-decoration: none;
+}
+
+.news-category-group .category{
+	width: 66px;
+	height: 24px;
+	margin: 9px 15px 9px 0;
 	font-family: 'Noto Sans CJK JP';
-	font-size: 14px;
-	font-weight: bold;
+	font-size: 10px;
+	font-weight: 500;
+	text-align: center;
+	color: #26386B;
+	border-color: #26386B;
+	border-style:solid;
+	border-width: 1px;
+	border-radius: 24px;
 }
 
 .indetail button{
@@ -241,6 +276,63 @@ hr{
 	color: #26386B;	
 }
 
+.news-popup-overlay{
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.7);
+	transition: opacity 300ms;
+	visibility: hidden;
+	opacity: 0;
+}
+
+.news-popup{
+    margin: 4% 12.5% auto 12.5%;
+    padding: 40px 12.5% 40px 12.5%;
+    background: #fff;
+    border-radius: 5px;
+    width: 75%;
+    height: 90%;
+    overflow: auto;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+}
+
+.news-popup-overlay:target {
+	visibility: visible;
+	opacity: 1;
+  }
+
+.popup-close{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    text-decoration-line: none;
+    position: relative;
+	transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+.popup-close:active {
+  color: #fff;
+}
+.news-popup-overlay .content {
+  max-height: 30%;
+  overflow: auto;
+}
+
+.news-header{
+	font-size: 20px;
+	color: #333;
+	margin: 40px 0 54px 0;
+}
+
 .button{
 	color: #26386B;
 	border-color: #26386B;
@@ -248,10 +340,58 @@ hr{
 	border-width: 2px;
 }
 
+.popup-close-section{
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.close-text{
+	font-size: 12px;
+	color: #26386B;
+	margin: 8px 0;
+}
+
+.popup-close span{
+	display: flex;
+	justify-content: center;
+    align-items: center;
+	text-decoration: none;
+	width: 100%;
+	height: 100%;
+	font-size: 30px;
+	border-radius: 50px;
+	border: 1px;
+	border-style: solid;
+	border-color: #26386B;
+    cursor: pointer;
+	transition: 0.3s;
+}
+
+.popup-close span:hover{
+	background: #bbb;
+}
+
+.popup-close span:active{
+	background: #26386B;
+	color: #fff;
+	transition: 0s;
+}
+
 .news-article button{
 	font-size: 14px;
 	font-weight: 500;
 	color: #26386B;
+}
+
+.news-content{
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.news-content .first{
+	padding: 0;
 }
 
 div.product-intro{
@@ -397,9 +537,20 @@ div.product-intro{
 	width: 320px;
 	height: 72px;
 	color: #fff;
-	padding: 0;
+	cursor: pointer;
+	padding: auto;
 	border: 0;
 	border-radius: 25px 25px 0 0;
+	transition: 0.3s;
+}
+
+.tabs-button:hover{
+	background-color: #88e2f1;
+}
+
+.tabs-button:active{
+	background-color: hwb(224 23% 36%);
+	color: #087AC9;
 }
 
 .tab1{
@@ -417,18 +568,46 @@ div.product-intro{
 .tab-content{
 	width: 100%;
 	padding: 40px 0 40px 0;
-	display: flex;
+	box-sizing: border-box;
+	display: none;
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-between;
 	color: #fff;
-	width: 1280px;
-	height: 765px;
+	height: auto;
 	background: #087AC9;
+
 }
 
-.tab-content div{
-	width: 920px;
+.tab-content-fade{
+	width: 100%;
+	box-sizing: border-box;
+	-webkit-animation: fadeEffect 0.6s;
+	animation: fadeEffect 0.6s;
+}
+
+/* Style the tab content *
+  /* Fade in tabs */
+  @-webkit-keyframes fadeEffect {
+	from {opacity: 0;}
+	to {opacity: 1;}
+  }
+  
+  @keyframes fadeEffect {
+	from {opacity: 0;}
+	to {opacity: 1;}
+  }
+
+.usecase .first{
+	display: flex;
+}
+
+.tab-content-fade{
+	width: 72%;
+}
+
+.tab-content img{
+	width: 100%;
 }
 
 .delivery-rec{
