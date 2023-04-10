@@ -7,3 +7,5 @@ add_shortcode('url', function ( $atts ) {
     return get_theme_file_uri();
 } );
 
+remove_filter('term_description','wpautop');
+remove_filter( 'the_content', 'wpautop' );
