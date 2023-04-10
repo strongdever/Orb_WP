@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Orb</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="assets/css/style.css">
 	<script src="assets/js/custom.js"></script>
 </head>
@@ -98,7 +99,7 @@
 			</a>
 		</div>
 		<div class="indetail">
-			<button class="button">ニュース一覧はこちら</button>
+			<a class="button">ニュース一覧はこちら</a>
 		</div>
 
 	</div>
@@ -140,7 +141,7 @@
 				<br>
 				Orb DLTでは、以下のようなデジタル通貨の振る舞いを柔軟に設定することが可能です。
 			</div>
-			<img src="assets/images/product_2.png">
+			<img src="assets/images/product_2.jpg">
 			<div class="description">
 				尚、複数の通貨を同一基盤上で実装可能です。独自通貨、独自コイン、電子マネーなどを複数発行管理でき、通貨間の交換の設定も可能となります。
 			</div>
@@ -348,7 +349,7 @@
 			こちらは、Orb DLTの開発者向けポータルサイトです。アプリケーション開発に使用するOrb DLT APIとSDK、Orb DLTの様々なコンポーネントの概要やAPIドキュメントを公開しております。
 		</div>
 		<div class="indetail">
-			<button class="button">詳しくはこちら</button>
+			<a class="button" href="https://ja.developer.imagine-orb.com/">詳しくはこちら</a>
 		</div>
 	</div>
 <!--Developer's portal section end-->
@@ -356,9 +357,9 @@
 <!--Company-profile section start-->
 	<div class="company-profile" id="company-profile">
 		<div class="section-title">
-			<h1>Developer’s Portal</h1>
+			<h1>Company</h1>
 			<hr>
-			<h3>開発者向け技術情報</h3>
+			<h3>会社概要</h3>
 		</div>
 		<div class="profile-content">
 			<div class="profile-record first">
@@ -524,6 +525,7 @@
 					<input type="text" placeholder="000-0000-0000" id="inquiry-phonenumber">
 				</div>
 			</div>
+			<hr>
 			<div class="inquires-record">
 				<div class="inquires-classify">ご連絡方法について<br>(選択して下さい)</div>
 				<div class="inquires-value">
@@ -537,6 +539,7 @@
 					</div>
 				</div>
 			</div>
+			<hr>
 			<div class="inquires-record last">
 				<div class="inquires-classify">お問合せ内容詳細</div>
 				<div class="inquires-value">
@@ -544,13 +547,13 @@
 				</div>
 			</div>
 			<div class="indetail">
-				<button class="button">送信内容を確認する</button>
+				<a class="button" href="#contactus-popup-overlay">送信内容を確認する</a>
 			</div>
 		</div>
 	</div>
 <!--Inquires-profile section end-->
 
-<!--Header section start-->
+<!--Footer section start-->
 	<div class="footer">
 		<div class="footer-navbar">
 			<div class="nav">
@@ -574,7 +577,7 @@
 		<div class="privacy"><a href="">個人情報保護方針</a></div>
 		<div class="copyright">Copyright © 2023 Orb Inc. All rights reserved.</div>
 	</div>
-<!--Header section end-->
+<!--Footer section end-->
 <!--News Popup start-->
 	<div class="news-popup-overlay" id="news-popup-overlay">
 		<div class="news-popup">
@@ -606,5 +609,98 @@
 		</div>
 	</div>
 <!--News Popup End-->
+
+<!--Contact Us Popup start-->
+	<div class="contactus-popup-overlay" id="contactus-popup-overlay">
+		<div class="contactus-popup">
+			<div class="popup-close-section">
+				<a class="popup-close" href="#inquires">
+					<span>&times;</span>
+				</a>
+				<div class="close-text">閉じる</div>
+			</div>
+			<div class="contactus-popup-content">
+				<div class="inquires-description">
+					下記のカテゴリを選択し、ご連絡ください。内容を確認次第、こちらからご連絡させていただきます。
+					<br>
+					このフォームで共有される情報は、お問合せの処理にのみ使用されます。 	
+				</div>
+				<div class="inquires-record first">
+					<div class="inquires-classify">お問合せの目的</div>
+					<div class="inquires-value">Orb DLDについて詳しく知りたい</div>
+				</div>
+				<hr>
+				<div class="inquires-record">
+					<div class="inquires-classify">会社名/学校名</div>
+					<div>
+						〇〇株式会社/〇〇学校
+					</div>
+				</div>
+				<hr>
+				<div class="inquires-record">
+					<div class="inquires-classify">お名前</div>
+					<div class="inquires-value">
+						山田　太郎
+					</div>
+				</div>
+				<hr>
+				<div class="inquires-record">
+					<div class="inquires-classify">メールアドレス</div>
+					<div class="inquires-value">
+						Orb@mail.com
+					</div>
+				</div>
+				<hr>
+				<div class="inquires-record">
+					<div class="inquires-classify">電話番号</div>
+					<div class="inquires-value">
+						000-0000-0000
+					</div>
+				</div>
+				<hr>
+				<div class="inquires-record">
+					<div class="inquires-classify">ご連絡方法について</div>
+					<div class="inquires-value">
+						電話で折り返してほしい
+					</div>
+				</div>
+				<hr>
+				<div class="inquires-record last">
+					<div class="inquires-classify">お問合せ内容詳細</div>
+					<div class="inquires-value">
+						お問い合わせ内容詳細が入ります。お問い合わせ内容詳細が入ります。お問い合わせ内容詳細が入ります。お問い合わせ内容詳細が入ります。お問い合わせ内容詳細が入ります。お問い合わせ内容詳細が入ります。お問い合わせ内容詳細が入ります。お問い合わせ内容詳細が入ります。
+					</div>
+				</div>
+				<div class="contactus-modify">
+					<i class="fa">&#xf104;</i>
+					<div>修正する</div>
+				</div>
+				<div class="indetail">
+					<a class="button" href="#contactus-verify-overlay">送信する</a>
+				</div>	
+			</div>
+		</div>
+	</div>
+<!--Contact Us Popup End-->
+
+<!--Contact Us Verify Popup start-->
+<div class="contactus-verify-overlay" id="contactus-verify-overlay">
+	<div class="contactus-popup">
+		<div class="popup-close-section">
+			<a class="popup-close" href="#inquires">
+				<span>&times;</span>
+			</a>
+			<div class="close-text">閉じる</div>
+		</div>
+		<div class="contactus-Verify-content">
+			<div class="inquires-description">
+				下記のカテゴリを選択し、ご連絡ください。内容を確認次第、こちらからご連絡させていただきます。
+				<br>
+				このフォームで共有される情報は、お問合せの処理にのみ使用されます。 	
+			</div>
+		</div>
+	</div>
+</div>
+<!--Contact Us Verify Popup End-->
 </body>
 </html>

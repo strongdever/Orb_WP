@@ -1,5 +1,6 @@
 html{
 	scroll-behavior: smooth;
+	text-rendering: optimizeLegibility;
 }
 
 body{
@@ -11,10 +12,8 @@ body{
 	margin: 0;
 	line-height: 24px;
 	background-size: cover;
-}
-
-*{
 	box-sizing: border-box;
+	overflow-x: hidden;
 }
 
 .header{
@@ -110,9 +109,10 @@ active {
 }
 
 .introduction2{
-	width: auto;
+	width: 100%;
 	height: auto;
-	padding: 140px 285px 140px 285px;
+	padding-top: 140px;
+	padding-bottom: 140px;
 	background-image: url(../images/main_mask_img.jpg);
     background-size: cover;
     background-repeat: no-repeat;
@@ -132,7 +132,8 @@ active {
 	background: #fff;
 }
 
-div.section-title{
+.section-title{
+	width: 100%;
 	display: flex;
     flex-direction: column;
     align-items: center;
@@ -144,8 +145,8 @@ div.section-title{
 	margin: 15px 0 5px 0;
 }
 
-.section-content{
-	width: 710px;
+.introduction2 .section-content{
+	width: 55.5%;
 	height: auto;
 }
 
@@ -206,21 +207,23 @@ hr{
 }
 
 .news{
-	padding: 80px 180px 80px 180px;
+    width: 100%;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.section-content{
-	width: 100%;
-	height: auto;
-	padding: 30px 0 60px 0;
+.news .section-content{
+	width: 75%;
+    height: auto;
+    padding: 30px 0 60px 0;
     display: flex;
-	flex-direction: row;
-    align-content: center;
-    justify-content: center;
+    flex-direction: row;
 }
 
 .section-item{
-	height: 136px;
 	padding: 0 23px 0 23px;
 }
 
@@ -230,6 +233,22 @@ hr{
 	color: #333;
 	font-weight: 500;
 	line-height: 24px;
+}
+
+.news-page-content{
+	width: 75%;
+}
+
+.news-page-item hr{
+	width:100%;
+	height: 1px;
+	color: #CDD6DD;
+	background: #CDD6DD;
+	margin: 37px 0 23px 0;
+}
+
+.news-page-content .news-category .section-item{
+	padding: 0;
 }
 
 .section-item button{
@@ -268,10 +287,14 @@ hr{
 	border-radius: 24px;
 }
 
-.indetail button{
+.indetail a{
+	text-decoration: none;
 	width: 286px;
 	height: 62px;
 	font-size: 16px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	font-weight: bold;
 	color: #26386B;	
 }
@@ -286,10 +309,10 @@ hr{
 	transition: opacity 300ms;
 	visibility: hidden;
 	opacity: 0;
+	padding: 4% 12.5% 4% 12.5%;
 }
 
 .news-popup{
-    margin: 4% 12.5% auto 12.5%;
     padding: 40px 12.5% 40px 12.5%;
     background: #fff;
     border-radius: 5px;
@@ -698,8 +721,9 @@ div.product-intro{
 	background: #F5F5F5;
 }
 
-.tech-info .indetail button{
+.tech-info .indetail a{
 	width: 280px;
+	text-decoration: none;
 }
 
 .tech-info .description{
@@ -855,36 +879,35 @@ div.product-intro{
 
 .inquires{
 	background: #F5F5F5;
-	padding: 80px 160px 80px 160px;
+    padding: 80px 12.5% 80px 12.5%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.inquires .description{
+	width: 100%;
 	display: flex;
+	align-items: flex-start;
+	margin: 50px 0 20px 0;
+}
+
+.inquires-content{
+	width: 100%;
+    height: fit-content;
+    margin: 40px 0 0 0;
+    display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.inquires .description{
-	width: 960px;
-	display: flex;
-	align-items: flex-start;
-	margin: 50px 0 0 0;
-}
-
-.inquires-content{
-	width: 960px;
-	height: fit-content;
-	margin:40px 0 0 0;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-
 .inquires-record{
 	width: 100%;
-	height: fit-content;
-	padding: 19.5px 0 19.5px 0;
-	display: flex;
-	flex-direction: row;
-	align-items: flex-start;
-	justify-content: center;
+    height: fit-content;
+    padding: 19.5px 0 19.5px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
 }
 
 .inquires-content hr{
@@ -895,7 +918,7 @@ div.product-intro{
 }
 
 .inquires-classify{
-	width: 354px;
+	width: 36.5%;
 }
 
 .necessary::before{
@@ -1029,4 +1052,148 @@ input.contact-checkbox{
 	font-family: "Lato";
 	font-size: 12px;
 	margin: 17px 0;
+}
+
+.pagination {
+  display: inline-block;
+}
+
+.page-button{
+	text-align: center;
+	color: #98A6B5;
+	float: left;
+	font-family: 'Source Han Sans JP';
+	font-size: 18px;
+	padding: 8px 16px;
+	text-decoration: none;
+}
+
+.page-button{
+	text-align: center;
+	color: #98A6B5;
+	float: left;
+	font-family: 'Source Han Sans JP';
+	font-size: 18px;
+	padding: 8px 16px;
+	text-decoration: none;
+}
+
+.page-PreNex{
+	color: #26386B;
+}
+
+.page-button.active {
+	background-color: #26386B;
+	color: white;
+	border-radius: 5px;
+}
+
+.page-button:active {
+	background-color: #26386B;
+	color: #26386B;
+	border-radius: 5px;
+}
+
+.page-button:hover:not(.active) {
+	background-color: #ddd;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.classify-line{
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.privacy-page{
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.privacy-page-content{
+	width: 75%;
+}
+
+.contactus-modify{
+	padding-top: 45px;
+	padding-bottom: 19px;
+}
+
+.contactus-popup-overlay{
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.7);
+	transition: opacity 300ms;
+	visibility: hidden;
+	opacity: 0;
+	padding: 4% 12.5% 4% 12.5%;
+}
+
+.contactus-popup{
+    padding: 40px 36px 40px 36px;
+    background: #fff;
+    border-radius: 5px;
+    height: 90%;
+    overflow: auto;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+}
+
+.contactus-popup-overlay:target {
+	visibility: visible;
+	opacity: 1;
+}
+
+.inquires-description{
+	padding: 40px 0 25px 0;
+}
+
+.contactus-popup-content hr{
+	width: 100%;
+	height: 1px;
+	margin: 0;
+	background: #CDD6DD;
+}
+
+.contactus-modify{
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+.contactus-modify div{
+	color: #BABABA;
+}
+
+.contactus-modify i{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 16px;
+	color: #BABABA;
+	padding: 0 10px;
+}
+
+.contactus-verify-overlay{
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.7);
+	transition: opacity 300ms;
+	visibility: hidden;
+	opacity: 0;
+	padding: 4% 12.5% 4% 12.5%;
+}
+
+.contactus-verify-overlay:target {
+	visibility: visible;
+	opacity: 1;
 }

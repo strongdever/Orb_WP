@@ -25,3 +25,7 @@ function openUsecase(evt, usecaseName) {
   evt.currentTarget.className += " active";
 }
 //Usecase Tab bar start-----------------
+
+//pagination start----------------------
+
+//pagination end------------------------
