@@ -207,7 +207,7 @@ h5{
 
 h6{
 	font-family: 'Noto Sans CJK JP';
-	font-size: 24px;
+	font-size: 18px;
 	color: #fff;
 	margin: 0;
 }
@@ -529,6 +529,12 @@ div.product-intro{
 .window-title{
 	padding: 10px 20px 10px 20px;
 	background-color: #26386B;
+	display: flex;
+}
+
+.window-title h3{
+	color: #fff;
+	line-height: 24px;
 }
 
 .window-content{
