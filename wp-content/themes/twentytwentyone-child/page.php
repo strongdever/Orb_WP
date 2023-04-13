@@ -9,6 +9,7 @@
     <link rel="icon" type="image/png" href="<?php echo get_theme_file_uri(); ?>/assets/images/logo/favicon.png">
     <link rel="apple-touch-icon" type="image/png" href="<?php echo get_theme_file_uri(); ?>/assets/images/logo/favicon.png">
 	<link rel="stylesheet" href="<?php echo get_theme_file_uri(); ?>/assets/css/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 	<script src="<?php echo get_theme_file_uri(); ?>/assets/js/custom.js"></script>
 </head>
 <?php

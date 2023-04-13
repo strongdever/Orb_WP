@@ -26,6 +26,29 @@ function openUsecase(evt, usecaseName) {
 }
 //Usecase Tab bar start-----------------
 
-//pagination start----------------------
+//News Popup Start----------------------
 
-//pagination end------------------------
+$(document).ready(function(){
+
+  // When the user clicks the button, open the modal 
+  $("#btn-news-category").click(function() {
+    $("#news-popup-overlay")[0].style.display = "block";
+    $("body").css('overflow', "hidden");
+  });
+  
+  // When the user clicks on <span> (x), close the modal
+  $(".popup-close").click(function() {
+    $("#news-popup-overlay")[0].style.display = "none";
+    $("body").css('overflow', "auto");
+  });
+
+  // When the user clicks anywhere outside of the modal, close it
+  $(window).click(function(event) {
+    if (event.target.className == "news-popup-overlay") {
+      $("#news-popup-overlay")[0].style.display = "none";
+      $("body").css('overflow', "auto");
+    }
+  })
+
+//News Popup End----------------------
+})
