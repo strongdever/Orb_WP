@@ -8,6 +8,7 @@ body{
 	margin: 0;
 	font-size: 16px;
 	font-weight:500;
+	letter-spacing: 1px;
 	color: #333;
 	margin: 0;
 	line-height: 24px;
@@ -374,7 +375,7 @@ hr{
     font-size: 30px;
     font-weight: bold;
     text-decoration: none;
-    color: #333;
+    color: #26386B;
 }
 .popup-close:active {
   color: #fff;
@@ -618,7 +619,7 @@ div.product-intro{
 	background-color: #88e2f1;
 }
 
-.tabs-button:active{
+.tabs-button div:active{
 	background-color: hwb(224 23% 36%);
 	color: #087AC9;
 }
@@ -1186,7 +1187,8 @@ input.contact-checkbox{
 }
 
 .pagination {
-  display: inline-block;
+    display: flex;
+    align-items: center;
 }
 
 .page-button{
@@ -1199,35 +1201,97 @@ input.contact-checkbox{
 	text-decoration: none;
 }
 
-.page-button{
+.pagination .first{
+	margin-left: 10px;
+}
+
+.pagination .last{
+	margin-right: 10px;
+}
+
+.page-num{
+	width: 40px;
+	height: 40px;
+	margin: 0 2px;
 	text-align: center;
 	color: #98A6B5;
 	float: left;
 	font-family: 'Source Han Sans JP';
 	font-size: 18px;
-	padding: 8px 16px;
-	text-decoration: none;
+	border-radius: 5px;	
+}
+
+.page-button{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+	padding: 0;
+	color: #98A6B5;
+    cursor: pointer;
+    transition: 0.3s; 	
 }
 
 .page-PreNex{
-	color: #26386B;
+	width: 50px;
+    height: 50px;
+	padding: 0;
+    border-radius: 50px;
+    border: 1px;
+    border-style: solid;
+    border-color: #26386B;
 }
+
+.page-next span{
+	width: 100%;
+	height: 100%;
+    background-image: url(../images/next_26386B.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.page-next span:active{
+    background-image: url(../images/next_white.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.page-next span:active {
+	border-radius: 50px;
+	background-color: #26386B;
+}
+
+.page-prev span{
+	width: 100%;
+	height: 100%;
+    background-image: url(../images/prev_26386B.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.page-prev span:active{
+    background-image: url(../images/prev_white.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.page-prev span:active {
+	border-radius: 50px;
+	background-color: #26386B;
+}
+
 
 .page-button.active {
 	background-color: #26386B;
 	color: white;
-	border-radius: 5px;
 }
 
 .page-button:active {
 	background-color: #26386B;
-	color: #26386B;
-	border-radius: 5px;
+	color: #fff;
 }
 
 .page-button:hover:not(.active) {
-	background-color: #ddd;
-	border-radius: 5px;
+	background-color: #bbb;
+	color: #26386B;
 	cursor: pointer;
 }
 
@@ -1561,62 +1625,62 @@ input.contact-checkbox{
 	display: flex;
     flex-direction: row;
 	justify-content: center;
-}
+  }
 
-.social-icons div{
+  .social-icons div{
     width: 47px;
     height: 47px;
 	border-radius: 23px;
-}
+  }
 
-.social-icons div i{
+  .social-icons div i{
     font-size: 30px;
- }
+  }
 
- .privacy a{
+  .privacy a{
 	width: 100%;
 	font-size: 16px;
 	letter-spacing: 4px;
 	text-align: center;
 	display: flex;
     justify-content: center;
- }
+  }
 
- .copyright{
+  .copyright{
 	font-size: 16px;
 	text-align: center;
- }
+  }
 
- body{
+  body{
 	letter-spacing: 3px;
- }
+  }
 
- .header{
+  .header{
 	height: 70px;
 	position: fixed;
 	top: 0;
- }
+  }
 
- .logo img{
+  .logo img{
 	padding-left: 20px;
 	width: 100px;
 	height: 36px
- }
+  }
 
- .header .nav{
+  .header .nav{
 	display: none;
- }
+  }
 
- .language-change{
+  .language-change{
 	display: none;
- }
+  }
 
- .navbar-logo{
+  .navbar-logo{
 	position: absolute;
     left: 0;
- }
+  }
 
- .header .btn-hamburgo{
+  .header .btn-hamburgo{
 	display: flex;
     width: 35px;
     height: 35px;
@@ -1625,9 +1689,9 @@ input.contact-checkbox{
     position: absolute;
     border-radius: 2px;
     right: 20px;
- }
+  }
 
- .responsive .btn-close{
+  .responsive .btn-close{
 	display: flex;
     width: 35px;
     height: 35px;
@@ -1635,84 +1699,84 @@ input.contact-checkbox{
     align-items: center;
     position: absolute;
 	border-radius: 2px;
- }
+  }
 
- .responsive .btn-hamburgo{
+  .responsive .btn-hamburgo{
 	display: none;
- }
+  }
 
- .introduction{
+  .introduction{
 	margin: 70px 0;
- }
+  }
 
- .responsive{
+  .responsive{
     width: 100%;
     height: 100%;
     transition: top 0.3s;
- }
+  }
 
- .responsive .navbar-logo{
+  .responsive .navbar-logo{
 	position: absolute;
 	top: 17px;
 	left: 0;
- }
+  }
 
- .responsive .btn-close{
+  .responsive .btn-close{
 	position: absolute;
     top: 17px;
 	right: 20px;
- }
+  }
 
- .responsive .nav{
+  .responsive .nav{
 	position: absolute;
 	width: 89.3%;
     height: 100%;
     display: flex;
     top: 0;
     align-items: center;
- }
+  }
 
- .responsive .nav ul{
+  .responsive .nav ul{
 	width: 100%;
 	display: flex;
     flex-direction: column;
     align-items: center;
- }
+  }
 
- .responsive .nav ul li{
+  .responsive .nav ul li{
 	width: 100%;
 	display: flex;
     justify-content: center;
- }
+  }
 
- .responsive .nav ul li a{
+  .responsive .nav ul li a{
 	font-weight: bold;
 	width: 100%;
- }
+  }
 
- .responsive .nav ul li .first{
+  .responsive .nav ul li .first{
 	margin: 0;
- }
+  }
 
- .responsive .language-change{
+  .responsive .language-change{
     display: inline;
     width: 100%;
     text-align: center;
     position: absolute;
     top: 480px;
- }
+  }
 
-.news-popup-overlay{
+  .news-popup-overlay{
 	padding-top: 95px;
-}
+  }
 
- .news-popup{
+  .news-popup{
 	padding: 40px 14px 40px 14px;
     width: 89.3%;
- }
+  }
 
- .news-page-content{
+  .news-page-content{
 	width: 89.3%;
- }
+  }
 
 }

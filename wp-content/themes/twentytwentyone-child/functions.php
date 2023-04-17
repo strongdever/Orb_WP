@@ -35,6 +35,7 @@ add_shortcode('news', function ( $atts ) {
         </div>
     <?php
     endwhile;
+    wp_reset_query();
     return ob_get_clean();
 } );
 
@@ -64,5 +65,6 @@ add_shortcode('news-page', function ( $atts ) {
         </div>
     <?php
     endwhile;
+    wp_reset_query();
     return ob_get_clean();
 } );

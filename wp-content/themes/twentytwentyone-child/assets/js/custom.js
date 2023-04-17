@@ -49,13 +49,12 @@ function openUsecase(evt, usecaseName) {
   evt.currentTarget.className += " active";
 }
 
+//Hiding and showing header when scrolling down and up-------start----------
 function initial(){
   if(window.pageYOffset < 98){
     document.getElementById("header").style.top = "0";
   }
 }
-
-//Hiding and showing header when scrolling down and up-------start----------
 var prevScrollpos = window.pageYOffset;
 window.onscroll = function() {
   var screen_width = screen.width;
@@ -137,4 +136,56 @@ $(document).ready(function(){
   })
 
 //News Popup End----------------------
+
+//pagination ------------------start--------------------
+  var curr_pagi_Num = 0;   //current pagination number
+  var old_pagi_Num = 0;    //previous page number
+  var curr_page = 0;  //current page number
+  $('.page-num').click(function() {
+    var btn_num = $(".page-num");
+    curr_pagi_Num = $(this).index() - 1;
+    curr_page = curr_page + (curr_pagi_Num - old_pagi_Num);
+    console.log(curr_page);
+    for (i = 0; i < btn_num.length; i++) {
+      btn_num[i].className = btn_num[i].className.replace(" active", "");
+    }  
+    this.className += " active";
+    old_pagi_Num = curr_pagi_Num;
+    console.log(old_pagi_Num);
+  })
+
+  $('.page-next').click(function() {
+    curr_page++;
+    var btn_num = $(".page-num");
+    curr_pagi_Num++;        
+    if(curr_pagi_Num >= 5){
+      for (i = 0; i < btn_num.length; i++) {
+        btn_num[i].innerHTML = curr_page + i + 1;
+      } 
+      curr_pagi_Num -= 5;
+    }
+    btn_num[curr_pagi_Num].className += " active";
+    btn_num[old_pagi_Num].className = btn_num[old_pagi_Num].className.replace(" active", "");
+    old_pagi_Num = curr_pagi_Num;
+  })
+
+  $('.page-prev').click(function() {
+    curr_page--;
+    var btn_num = $(".page-num");
+    curr_pagi_Num--;
+    if(curr_pagi_Num < 0){
+      if(curr_page < 0){
+        curr_page++;
+        curr_pagi_Num++;
+        return;
+      }
+      for (i = 0; i < btn_num.length; i++) {
+        btn_num[i].innerHTML = curr_page + i -3;
+      } 
+      curr_pagi_Num += 5;
+    }
+    btn_num[curr_pagi_Num].className += " active";
+    btn_num[old_pagi_Num].className = btn_num[old_pagi_Num].className.replace(" active", "");
+    old_pagi_Num = curr_pagi_Num;
+  })
 })

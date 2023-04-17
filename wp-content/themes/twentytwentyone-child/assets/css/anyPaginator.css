@@ -1,0 +1,123 @@
+/****************************************************************************************
+ *
+ * anyPaginator is copyright (C) 2021-2023 Arne D. Morken and Balanse Software.
+ *
+ * License: AGPLv3.0 for open source use or anyPaginator Commercial License for commercial use.
+ * Get licences here: http://anypaginator.balanse.info/
+ *
+ * See also the anyVista project: https://github.com/arnemorken/anyvista
+ *
+ ****************************************************************************************/
+
+.any-paginator-container {
+  margin-top:   10px;
+  background:   white;
+  font:         14px Verdana, sans-serif;
+  display:      inline-block;
+}
+
+.any-paginator-btn {
+  margin-right:   1px;
+  min-width:      12px;
+  min-height:     20px  !important;
+  max-height:     20px  !important;
+  border-radius:  3px;
+  white-space:    nowrap;
+  display:        inline-block;
+  text-align:     center;
+  color:          #fc5200;
+  cursor:         pointer;
+}
+
+.any-paginator-num {
+  min-width:    20px;
+  border:       1px solid #fc5200;
+}
+
+.any-paginator-ellipsis {
+  min-width:    20px;
+  border:       1px solid #eee;
+  color:        #888;
+  cursor:       default;
+}
+
+.any-paginator-inactive {
+  color:        #888;
+}
+
+.any-paginator-page,
+.any-paginator-item {
+  min-width:    20px;
+  white-space:  nowrap;
+  display:      inline-block;
+  text-align:   center;
+  color:        #333;
+}
+
+.any-paginator-prev {
+  margin-right:   5px;
+  font-size:      12px;
+}
+
+.any-paginator-next {
+  margin-left:    5px;
+  font-size:      12px;
+}
+
+.any-paginator-first {
+  font-size:      14px;
+}
+
+.any-paginator-last {
+  font-size:      14px;
+}
+
+.any-paginator-goto {
+  margin-left:    5px;
+  white-space:    nowrap;
+  display:        inline-block;
+  font-size:      14px;
+}
+
+.any-paginator-goto-inp {
+  min-width:      22px;
+  max-width:      22px;
+  min-height:     20px  !important;
+  max-height:     20px  !important;
+  line-height:    1     !important;
+  margin-right:   3px;
+  padding-top:    0px;
+  padding-bottom: 0px;
+  white-space:    nowrap;
+  display:        inline-block;
+  text-align:     center;
+  font:           12px Verdana, sans-serif;
+}
+
+.any-paginator-goto-inp:focus {
+  outline:      none;
+}
+
+.any-paginator-goto-btn {
+  min-width:    12px;
+  padding:      2px;
+  white-space:  nowrap;
+  display:      inline-block;
+  text-align:   center;
+  cursor:       pointer;
+}
+
+.any-paginator-goto-btn:hover {
+  padding:      1px;
+  border:       1px solid #ddd;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Currently supported by
+                                  Vivaldi, Opera, Chrome, Edge and Firefox */
+}
