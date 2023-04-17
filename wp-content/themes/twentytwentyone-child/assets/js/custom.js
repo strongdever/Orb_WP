@@ -61,8 +61,6 @@ window.onscroll = function() {
   var screen_width = screen.width;
   var currentScrollPos = window.pageYOffset;
   if (screen_width > 650){
-    console.log(screen_width);
-    console.log(screen_width);
     if (currentScrollPos < 10) {
       document.getElementById("header").style.top = "0";
     } else {
@@ -80,7 +78,6 @@ function headerVisible(event){
     }
     else{
       if(prevScrollpos > 2){
-        console.log("cursor test");
         document.getElementById("header").style.top = "-98px";
       }
     }
@@ -111,7 +108,17 @@ $(document).ready(function(){
 
   // When the user clicks the button, open the modal 
   $(".news-category").click(function() {
-    $("#news-popup-overlay")[0].style.display = "block";
+    var modal = $("#news-popup-overlay");
+//news date part
+    modal.find('h4').text($(this).find('h4').text());
+//news category part
+    modal.find('.news-category-group').empty();
+    $(this).find('.news-category-group').clone().appendTo(modal.find('.news-category-group'));
+//news tittle part
+    modal.find('.news-header').text($(this).find('.news-article').text());
+//news news content part
+    modal.find('.news-article').text($(this).find('.news-content').text());
+    modal.show();
     $("body").css('overflow', "hidden");
   });
   

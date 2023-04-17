@@ -234,13 +234,17 @@ hr{
 	background-color:#333;
 }
 
-.news{
+.news, .news-page{
     width: 100%;
     padding-top: 80px;
     padding-bottom: 80px;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.news-page{
+	margin-top: 60px;
 }
 
 .news .section-content{
@@ -384,6 +388,7 @@ hr{
 	font-size: 20px;
 	color: #333;
 	margin: 40px 0 54px 0;
+	text-align: center;
 }
 
 .button{
@@ -1695,6 +1700,19 @@ input.contact-checkbox{
     text-align: center;
     position: absolute;
     top: 480px;
+ }
+
+.news-popup-overlay{
+	padding-top: 95px;
+}
+
+ .news-popup{
+	padding: 40px 14px 40px 14px;
+    width: 89.3%;
+ }
+
+ .news-page-content{
+	width: 89.3%;
  }
 
 }
