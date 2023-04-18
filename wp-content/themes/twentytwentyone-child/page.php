@@ -8,11 +8,12 @@
 	<link rel="shortcut icon" href="<?php echo get_theme_file_uri(); ?>/assets/images/logo/favicon.png">
     <link rel="icon" type="image/png" href="<?php echo get_theme_file_uri(); ?>/assets/images/logo/favicon.png">
     <link rel="apple-touch-icon" type="image/png" href="<?php echo get_theme_file_uri(); ?>/assets/images/logo/favicon.png">
+	<link rel="stylesheet" href="<?php echo get_theme_file_uri(); ?>/assets/css/simplePagination.css">
 	<link rel="stylesheet" href="<?php echo get_theme_file_uri(); ?>/assets/css/style.css">
-	<link href="<?php echo get_theme_file_uri(); ?>/assets/css/anyPaginator.css" rel="stylesheet" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-	<script src="<?php echo get_theme_file_uri(); ?>/assets/js/anyPaginator.js"></script>
-	<script src="<?php echo get_theme_file_uri(); ?>/assets/js/custom.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.js"></script> 
+	<script src="<?php echo get_theme_file_uri(); ?>/assets/js/simplePagination.js"></script>
+	<script src="<?php echo get_theme_file_uri(); ?>/assets/js/custom.js"></script>    
 </head>
 <?php
 while ( have_posts() ) :

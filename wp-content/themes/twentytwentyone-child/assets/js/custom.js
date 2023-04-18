@@ -103,6 +103,7 @@ function forResponsive(){
   x.className = "header";
 }
 
+
 $(document).ready(function(){
 
   // When the user clicks the button, open the modal 
@@ -137,7 +138,6 @@ $(document).ready(function(){
 
 //News Popup End----------------------
 
-//pagination ------------------start--------------------
   var curr_pagi_Num = 0;   //current pagination number
   var old_pagi_Num = 0;    //previous page number
   var curr_page = 0;  //current page number
@@ -188,4 +188,85 @@ $(document).ready(function(){
     btn_num[old_pagi_Num].className = btn_num[old_pagi_Num].className.replace(" active", "");
     old_pagi_Num = curr_pagi_Num;
   })
+
+  //news pagination start-------------------
+  var article_num = $('.news-category').length;
+  var display_num = 6;
+  $(".news-page-content .news-category").slice(display_num).hide();
+  $('#news-pagination').pagination({
+      // Total number of items present
+      // in wrapper class
+      items: article_num,
+  
+      // Items allowed on a single page
+      itemsOnPage: display_num, 
+      onPageClick: function (noofele) {
+          $(".news-page-content .news-category").hide()
+              .slice(display_num * (noofele - 1),
+              display_num + display_num * (noofele - 1)).show();
+      }
+  });
+  //news pagination end-------------------
+
+  //Contact us Validation start-----------
+  jQuery.validator.addMethod("name_regex", function(value, element) {
+    return this.optional(element) || /^[a-zA-z\.\-_]{1,30}$/i.test(value);
+  }, "Firstname with only a-z A-Z.");
+  jQuery.validator.addMethod("phone_regex", function(value, element) {
+    return this.optional(element) || /^[0-9\.\-_]{10,30}$/i.test(value);
+  }, "Phone Number with only 0-9. Minlength: 10");
+  $("#contact-form").validate({
+    rules: {
+        'comp-name-input': {
+            required: true,
+            minlength: 1,
+            name_regex: true,
+        },
+        'inquiry-name': {
+            required: true,
+            minlength: 1,
+            name_regex: true
+        },
+        'inquiry-email': {
+            required: true,
+            email: true
+        },
+        'inquiry-phonenumber': {
+            required: true,
+            phone_regex: true,
+            minlength: 10
+        },
+        'inquiry-detail': {
+          required: true,
+          minlength: 5,
+          name_regex: true
+        },
+    },
+  
+    messages: {
+  
+        'comp-name-input': {
+            required: "このフイールドを入力してください!",
+        },
+        'inquiry-name': {
+            required: "このフイールドを入力してください!",
+        },
+        'inquiry-email': {
+            required: "このフイールドを入力してください!",
+            email: "「@」を含むメールアドレスを入力してください"
+        },
+        'inquiry-phonenumber': {
+            required: "このフイールドを入力してください!!",
+        },
+        'inquiry-detail': {
+          required: "このフイールドを入力してください!",
+        },
+  
+    },
+    submitHandler: function(form) {
+        form.submit();
+    }
+  });
+
+  //Contact us Validation end--------------
 })
