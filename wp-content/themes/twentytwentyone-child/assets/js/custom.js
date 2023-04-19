@@ -106,6 +106,27 @@ function forResponsive(){
 
 $(document).ready(function(){
 
+  //language exchange
+  $('.lang-jp').click(function(){
+    if(!$(this).hasClass("active")){
+      window.location.href="";
+      $(this).addClass("active");
+      $('.lang-en').removeClass("active");
+    }
+  })
+
+  $('.lang-en').click(function(){
+    if(!$(this).hasClass("active")){
+      window.location.href="top_en";
+      $($(this)).addClass("active");
+      $('.lang-jp').removeClass("active");
+    }
+  })
+
+  $('.lang-en').click(function(){
+    $('.lang-en').addClass(" active");
+  })
+
   // When the user clicks the button, open the modal
   $(".news-category").click(function() {
     var modal = $("#news-popup-overlay");
@@ -125,8 +146,6 @@ $(document).ready(function(){
 //contactus verify button click event
   $('#contactus-sending').click(function(){
     $('#contactus-popup-overlay').hide();
-    var modal = $("#contactus-verify-overlay");
-    modal.show();
     $("body").css('overflow', "hidden");
   })
 
@@ -181,15 +200,17 @@ $(document).ready(function(){
   });
   //news pagination end-------------------
 
-  //checkbox start------------------------
-
-  //checkbox end--------------------------
-
   //Contact us Validation start-----------
   $("#contact-by-email").prop('checked', true);
   $("#contact-by-phone").prop('checked', true);
   var valid_status = 1;
   $('#contact-detail').click(function(){  //indetail button
+    if($("#inquiry-detail").val() == ""){
+      $(".inquiry-detail-error").show();
+      $("#inquiry-detail").focus();
+      valid_status = 0;
+    }
+
     if($("#inquiry-phonenumber").val() == ""){
       $(".phonenumber-error").show();
       $("#inquiry-phonenumber").focus();
@@ -225,8 +246,7 @@ $(document).ready(function(){
       valid_status = 0;
     }
 
-    if(valid_status != 100){
-      console.log($("#inquiry-email").val())
+    if(valid_status == 1){
       var modal = $("#contactus-popup-overlay");
       modal.find('.popup-inquire-qurpose').val($(".inquiry-purpose select").children("option:selected").val());
       modal.find('.popup-company-name').val($("#comp-name-input").val());
@@ -254,7 +274,6 @@ $(document).ready(function(){
 //sending contact info
   var contactForm = $('#contactus-popup-content');
   contactForm.submit(function (event) {
-    console.log("submit test");
     event.preventDefault();
     const serviceID = "service_3ovt3mh";
     const templateID = "template_jp5cmc7";
@@ -316,6 +335,16 @@ $(document).ready(function(){
       valid_status = 0;
     } else{
       $(".phonenumber-error").hide();
+      var valid_status = 1;
+    }
+  })
+
+  $("#inquiry-detail").on("input", function(){ //when the textarea is input to
+    if($(this).val() == ''){
+      $(".inquiry-detail-error").show();
+      valid_status = 0;
+    } else{
+      $(".inquiry-detail-error").hide();
       var valid_status = 1;
     }
   })

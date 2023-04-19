@@ -84,16 +84,66 @@ body{
 	background-color: #BCD8F1;
 }
 
-active {
+.nav a:active {
 	background-color: #6cf;
 }
 
-.header .language-change{
-	padding: 0 40px 0 58px;
+.language-change{
+    display: flex;
+    padding: 0 40px 0 58px;
     font-family: 'Lato';
-	font-weight: 700;
-	font-size: 16px;
+    font-weight: 700;
+    font-size: 16px;
     color: #333333;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+
+.lang{
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.lang::after{
+	display: block;
+	content: '';
+	position: relative;
+	width: 100%;
+	transform: scaleX(0);
+	height: 2px;
+	bottom: 0;
+	left: 0;
+	background-color: #26386B;
+	transform-origin: bottom right;
+	transition: transform 0.25s ease-out;
+}
+
+.lang:hover::after{
+	display: block;
+	transform: scaleX(1);
+	transform-origin: bottom left;
+}
+
+.lang.active::after{
+	display: block;
+	transform: scaleX(1);
+	transform-origin: bottom left;
+}
+
+.lang-en:hover{
+	color:red;
+	text-decoration: solid;
+}
+
+.lang-jp:hover{
+	color:red;
+	text-decoration: solid;
+}
+
+.lang-slash{
+	margin: 0 5px;
 }
 
 .header-empty{
@@ -1860,9 +1910,11 @@ input.contact-checkbox{
   }
 
   .responsive .language-change{
-    display: inline;
+    display: flex;
+	flex-direction: row;
     width: 100%;
     text-align: center;
+	justify-content: center;
     position: absolute;
     top: 480px;
 	padding: 0;
