@@ -1205,7 +1205,8 @@ input.contact-checkbox{
     flex-direction: row;
 }
 
-.social-icons div{
+.social-icons a{
+	text-decoration: none;
     width: 24px;
     height: 24px;
     display: flex;
@@ -1215,7 +1216,7 @@ input.contact-checkbox{
     justify-content: center;
 }
 
-.social-icons div i{
+.social-icons a i{
     font-size: 16px;
     color: white;
 }
@@ -1408,6 +1409,12 @@ input.contact-checkbox{
 	background: #CDD6DD;
 }
 
+.contactus-sending{
+	border: none;
+	background: none;
+	width: 220px;
+}
+
 .contactus-modify{
 	margin-top: 45px;
 	margin-bottom: 19px;
@@ -1415,6 +1422,7 @@ input.contact-checkbox{
     display: flex;
 	cursor: pointer;
 	position: relative;
+	text-decoration: none;
 }
 
 .contactus-modify a{
@@ -1435,6 +1443,10 @@ input.contact-checkbox{
 	position: relative;
     left: -15px;
 	transition: all 0.15s ease-in-out;
+}
+
+.contactus-modify a:hover{
+	text-decoration: none;
 }
 
 .contactus-modify a:hover i{
@@ -1463,6 +1475,17 @@ input.contact-checkbox{
 .contactus-verify-overlay:target {
 	visibility: visible;
 	opacity: 1;
+}
+
+.input-variable{
+	width: 63.5%;
+    background: none;
+    border: none;
+	color: #333;
+}
+
+.contact-method-verify{
+	width: 63.5%;
 }
 
 .error {
@@ -1705,13 +1728,13 @@ input.contact-checkbox{
 	justify-content: center;
   }
 
-  .social-icons div{
+  .social-icons a{
     width: 47px;
     height: 47px;
 	border-radius: 23px;
   }
 
-  .social-icons div i{
+  .social-icons a i{
     font-size: 30px;
   }
 
@@ -1874,5 +1897,9 @@ input.contact-checkbox{
 
   .contactus-verify-overlay{
 	padding-top: 90px;
+  }
+
+  .privacy-page-content{
+	width: 89.3%;
   }
 }

@@ -228,27 +228,48 @@ $(document).ready(function(){
     if(valid_status != 100){
       console.log($("#inquiry-email").val())
       var modal = $("#contactus-popup-overlay");
-      modal.find('.popup-inquire-qurpose').text($(".inquiry-purpose select").children("option:selected").val());
-      modal.find('.popup-company-name').text($("#comp-name-input").val());
-      modal.find('.popup-user-name').text($("#inquiry-name").val());
-      modal.find('.popup-user-email').text($("#inquiry-email").val());
+      modal.find('.popup-inquire-qurpose').val($(".inquiry-purpose select").children("option:selected").val());
+      modal.find('.popup-company-name').val($("#comp-name-input").val());
+      modal.find('.popup-user-name').val($("#inquiry-name").val());
+      modal.find('.popup-user-email').val($("#inquiry-email").val());
       if($('#contact-by-phone').is(":checked")){
+        modal.find('.popup-phone-method').val("電話で折り返してほしい");
         modal.find('.popup-phone-method').show();
       } else{
         modal.find('.popup-phone-method').hide();
       }
       if($('#contact-by-email').is(":checked")){
+        modal.find('.popup-email-method').val("メールで折り返してほしい");
         modal.find('.popup-email-method').show();
       } else{
         modal.find('.popup-email-method').hide();
       }
-      modal.find('.popup-inquire-detail').text($("#inquiry-detail").val());
+      modal.find('.popup-inquire-detail').val($("#inquiry-detail").val());
       modal.show();
       $("body").css('overflow', "hidden");
     }
     valid_status = 1;
   })
   
+//sending contact info
+  var contactForm = $('#contactus-popup-content');
+  contactForm.submit(function (event) {
+    console.log("submit test");
+    event.preventDefault();
+    const serviceID = "service_3ovt3mh";
+    const templateID = "template_jp5cmc7";
+    // send the email here
+    emailjs.sendForm(serviceID, templateID, this).then(
+      (response) => {
+        $('#contactus-verify-overlay').show();
+      },
+      (error) => {
+        $('.contactus-Verify-content .inquires-description').text("申し訳ございませんが、お問い合わせのリクエストは失敗しました。もう一度やり直してください。");
+        $('#contactus-verify-overlay').show();
+      }
+    );
+  });
+
   $("#comp-name-input").on("input", function(){ //when the company name is input to
     if($(this).val() == ''){
       $(".comp-name-error").show();
