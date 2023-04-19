@@ -125,6 +125,7 @@ $(document).ready(function(){
   // When the user clicks on <span> (x), close the modal
   $(".popup-close").click(function() {
     $("#news-popup-overlay")[0].style.display = "none";
+  //  $("#contactus-popup-overlay")[0].style.display = "none";
     $("body").css('overflow', "auto");
   });
 
@@ -132,6 +133,7 @@ $(document).ready(function(){
   $(window).click(function(event) {
     if (event.target.className == "news-popup-overlay") {
       $("#news-popup-overlay")[0].style.display = "none";
+   //   $("#contactus-popup-overlay")[0].style.display = "none";
       $("body").css('overflow', "auto");
     }
   })
@@ -145,13 +147,11 @@ $(document).ready(function(){
     var btn_num = $(".page-num");
     curr_pagi_Num = $(this).index() - 1;
     curr_page = curr_page + (curr_pagi_Num - old_pagi_Num);
-    console.log(curr_page);
     for (i = 0; i < btn_num.length; i++) {
       btn_num[i].className = btn_num[i].className.replace(" active", "");
     }  
     this.className += " active";
     old_pagi_Num = curr_pagi_Num;
-    console.log(old_pagi_Num);
   })
 
   $('.page-next').click(function() {
@@ -209,64 +209,10 @@ $(document).ready(function(){
   //news pagination end-------------------
 
   //Contact us Validation start-----------
-  jQuery.validator.addMethod("name_regex", function(value, element) {
-    return this.optional(element) || /^[a-zA-z\.\-_]{1,30}$/i.test(value);
-  }, "Firstname with only a-z A-Z.");
-  jQuery.validator.addMethod("phone_regex", function(value, element) {
-    return this.optional(element) || /^[0-9\.\-_]{10,30}$/i.test(value);
-  }, "Phone Number with only 0-9. Minlength: 10");
-  $("#contact-form").validate({
-    rules: {
-        'comp-name-input': {
-            required: true,
-            minlength: 1,
-            name_regex: true,
-        },
-        'inquiry-name': {
-            required: true,
-            minlength: 1,
-            name_regex: true
-        },
-        'inquiry-email': {
-            required: true,
-            email: true
-        },
-        'inquiry-phonenumber': {
-            required: true,
-            phone_regex: true,
-            minlength: 10
-        },
-        'inquiry-detail': {
-          required: true,
-          minlength: 5,
-          name_regex: true
-        },
-    },
-  
-    messages: {
-  
-        'comp-name-input': {
-            required: "このフイールドを入力してください!",
-        },
-        'inquiry-name': {
-            required: "このフイールドを入力してください!",
-        },
-        'inquiry-email': {
-            required: "このフイールドを入力してください!",
-            email: "「@」を含むメールアドレスを入力してください"
-        },
-        'inquiry-phonenumber': {
-            required: "このフイールドを入力してください!!",
-        },
-        'inquiry-detail': {
-          required: "このフイールドを入力してください!",
-        },
-  
-    },
-    submitHandler: function(form) {
-        form.submit();
-    }
-  });
+  $('#contact-detail').click(function(){
+    console.log("test");
 
+
+  })
   //Contact us Validation end--------------
 })

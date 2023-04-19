@@ -1437,6 +1437,11 @@ input.contact-checkbox{
 	opacity: 1;
 }
 
+.error {
+	display: block;
+	margin-bottom: 10px;
+	color: red;
+}
 
 @media all and (max-width: 650px) {
   .introduction1 {
