@@ -11,7 +11,6 @@
 	<link rel="stylesheet" href="<?php echo get_theme_file_uri(); ?>/assets/css/simplePagination.css">
 	<link rel="stylesheet" href="<?php echo get_theme_file_uri(); ?>/assets/css/style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.js"></script> 
 	<script src="<?php echo get_theme_file_uri(); ?>/assets/js/simplePagination.js"></script>
 	<script src="<?php echo get_theme_file_uri(); ?>/assets/js/custom.js"></script>    
 </head>

@@ -106,7 +106,7 @@ function forResponsive(){
 
 $(document).ready(function(){
 
-  // When the user clicks the button, open the modal 
+  // When the user clicks the button, open the modal
   $(".news-category").click(function() {
     var modal = $("#news-popup-overlay");
 //news date part
@@ -122,74 +122,47 @@ $(document).ready(function(){
     $("body").css('overflow', "hidden");
   });
   
-  // When the user clicks on <span> (x), close the modal
+//contactus verify button click event
+  $('#contactus-sending').click(function(){
+    $('#contactus-popup-overlay').hide();
+    var modal = $("#contactus-verify-overlay");
+    modal.show();
+    $("body").css('overflow', "hidden");
+  })
+
+//contactus modify button click event
+  $('.contactus-modify').click(function(){
+    $('#contactus-popup-overlay').hide();
+    $("body").css('overflow', "auto");
+  })
+
+// When the user clicks on <span> (x), close the modal
   $(".popup-close").click(function() {
     $("#news-popup-overlay")[0].style.display = "none";
-  //  $("#contactus-popup-overlay")[0].style.display = "none";
+    $("#contactus-popup-overlay")[0].style.display = "none";
+    $("#contactus-verify-overlay")[0].style.display = "none";
     $("body").css('overflow', "auto");
   });
 
-  // When the user clicks anywhere outside of the modal, close it
+// When the user clicks anywhere outside of the modal, close it
   $(window).click(function(event) {
     if (event.target.className == "news-popup-overlay") {
       $("#news-popup-overlay")[0].style.display = "none";
-   //   $("#contactus-popup-overlay")[0].style.display = "none";
+      $("body").css('overflow', "auto");
+    }
+    if (event.target.className == "contactus-popup-overlay") {
+      $("#contactus-popup-overlay")[0].style.display = "none";
+      $("body").css('overflow', "auto");
+    }
+    if (event.target.className == "contactus-verify-overlay") {
+      $("#contactus-verify-overlay")[0].style.display = "none";
       $("body").css('overflow', "auto");
     }
   })
 
 //News Popup End----------------------
 
-  var curr_pagi_Num = 0;   //current pagination number
-  var old_pagi_Num = 0;    //previous page number
-  var curr_page = 0;  //current page number
-  $('.page-num').click(function() {
-    var btn_num = $(".page-num");
-    curr_pagi_Num = $(this).index() - 1;
-    curr_page = curr_page + (curr_pagi_Num - old_pagi_Num);
-    for (i = 0; i < btn_num.length; i++) {
-      btn_num[i].className = btn_num[i].className.replace(" active", "");
-    }  
-    this.className += " active";
-    old_pagi_Num = curr_pagi_Num;
-  })
-
-  $('.page-next').click(function() {
-    curr_page++;
-    var btn_num = $(".page-num");
-    curr_pagi_Num++;        
-    if(curr_pagi_Num >= 5){
-      for (i = 0; i < btn_num.length; i++) {
-        btn_num[i].innerHTML = curr_page + i + 1;
-      } 
-      curr_pagi_Num -= 5;
-    }
-    btn_num[curr_pagi_Num].className += " active";
-    btn_num[old_pagi_Num].className = btn_num[old_pagi_Num].className.replace(" active", "");
-    old_pagi_Num = curr_pagi_Num;
-  })
-
-  $('.page-prev').click(function() {
-    curr_page--;
-    var btn_num = $(".page-num");
-    curr_pagi_Num--;
-    if(curr_pagi_Num < 0){
-      if(curr_page < 0){
-        curr_page++;
-        curr_pagi_Num++;
-        return;
-      }
-      for (i = 0; i < btn_num.length; i++) {
-        btn_num[i].innerHTML = curr_page + i -3;
-      } 
-      curr_pagi_Num += 5;
-    }
-    btn_num[curr_pagi_Num].className += " active";
-    btn_num[old_pagi_Num].className = btn_num[old_pagi_Num].className.replace(" active", "");
-    old_pagi_Num = curr_pagi_Num;
-  })
-
-  //news pagination start-------------------
+//news pagination start-------------------
   var article_num = $('.news-category').length;
   var display_num = 6;
   $(".news-page-content .news-category").slice(display_num).hide();
@@ -208,11 +181,122 @@ $(document).ready(function(){
   });
   //news pagination end-------------------
 
+  //checkbox start------------------------
+
+  //checkbox end--------------------------
+
   //Contact us Validation start-----------
-  $('#contact-detail').click(function(){
-    console.log("test");
+  $("#contact-by-email").prop('checked', true);
+  $("#contact-by-phone").prop('checked', true);
+  var valid_status = 1;
+  $('#contact-detail').click(function(){  //indetail button
+    if($("#inquiry-phonenumber").val() == ""){
+      $(".phonenumber-error").show();
+      $("#inquiry-phonenumber").focus();
+      valid_status = 0;
+    }
 
+    if($("#inquiry-email").val() == ""){
+      $(".email-error").text("このフイールドを入力してください");
+      $(".email-error").show();
+      $("#inquiry-email").focus();
+      valid_status = 0;
+    } else{
+      var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+      if(!regex.test($("#inquiry-email").val())){
+        $(".email-error").text("「@」を含むメールアドレスを入力してください");
+        $(".email-error").show();
+        $("#inquiry-email").focus();
+        alid_status = 0;
+      } else{
+        $(".email-error").hide();
+      }
+    }
 
+    if($("#inquiry-name").val() == ""){
+      $(".user-name-error").show();
+      $("#inquiry-name").focus();
+      valid_status = 0;
+    }
+
+    if($("#comp-name-input").val() == ""){
+      $(".comp-name-error").show();
+      $("#comp-name-input").focus();
+      valid_status = 0;
+    }
+
+    if(valid_status != 100){
+      console.log($("#inquiry-email").val())
+      var modal = $("#contactus-popup-overlay");
+      modal.find('.popup-inquire-qurpose').text($(".inquiry-purpose select").children("option:selected").val());
+      modal.find('.popup-company-name').text($("#comp-name-input").val());
+      modal.find('.popup-user-name').text($("#inquiry-name").val());
+      modal.find('.popup-user-email').text($("#inquiry-email").val());
+      if($('#contact-by-phone').is(":checked")){
+        modal.find('.popup-phone-method').show();
+      } else{
+        modal.find('.popup-phone-method').hide();
+      }
+      if($('#contact-by-email').is(":checked")){
+        modal.find('.popup-email-method').show();
+      } else{
+        modal.find('.popup-email-method').hide();
+      }
+      modal.find('.popup-inquire-detail').text($("#inquiry-detail").val());
+      modal.show();
+      $("body").css('overflow', "hidden");
+    }
+    valid_status = 1;
+  })
+  
+  $("#comp-name-input").on("input", function(){ //when the company name is input to
+    if($(this).val() == ''){
+      $(".comp-name-error").show();
+      valid_status = 0;
+    } else{
+      $(".comp-name-error").hide();
+      valid_status = 1;
+    }
+  })
+
+  $("#inquiry-name").on("input", function(){ //when the user name is input to
+    if($(this).val() == ''){
+      $(".user-name-error").show();
+      valid_status = 0;
+    } else{
+      $(".user-name-error").hide();
+      valid_status = 1;
+    }
+  })
+
+  $("#inquiry-email").on("input", function(){ //when the email is input to
+    if($("#inquiry-email").val() == ""){
+      $(".email-error").val("このフイールドを入力してください");
+      $(".email-error").show();
+      $("#phonenumber-error").focus();
+      valid_status = 0;
+    } else{
+      var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+      if(!regex.test($("#inquiry-email").val())){
+        $(".email-error").text("「@」を含むメールアドレスを入力してください");
+        $(".email-error").show();
+        $("#inquiry-email").focus();
+        valid_status = 0;
+      } else{
+        $(".email-error").hide();
+        valid_status = 1;
+      }
+    }
+  })
+
+  $("#inquiry-phonenumber").on("input", function(){ //when the phonenumber is input to
+    if($(this).val() == ''){
+      $(".phonenumber-error").show();
+      valid_status = 0;
+    } else{
+      $(".phonenumber-error").hide();
+      var valid_status = 1;
+    }
   })
   //Contact us Validation end--------------
 })
