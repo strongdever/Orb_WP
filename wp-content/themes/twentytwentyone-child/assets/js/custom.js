@@ -107,19 +107,24 @@ function forResponsive(){
 $(document).ready(function(){
 
   //language exchange
-  $('.lang-jp').click(function(){
+  $('.lang-jp').click(function(e){
     if(!$(this).hasClass("active")){
-      window.location.href="";
+      //window.location.replace=("");
       $(this).addClass("active");
       $('.lang-en').removeClass("active");
+    } else{
+      e.preventDefault();
     }
   })
 
-  $('.lang-en').click(function(){
+  $('.lang-en').click(function(e){
     if(!$(this).hasClass("active")){
-      window.location.href="top_en";
-      $($(this)).addClass("active");
+      //console.log(window.location.href);
+      //window.location.replace("top-en");
+      $(this).addClass("active");
       $('.lang-jp').removeClass("active");
+    } else{
+      e.preventDefault();
     }
   })
 
