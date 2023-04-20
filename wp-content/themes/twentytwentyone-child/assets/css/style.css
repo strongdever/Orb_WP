@@ -404,6 +404,7 @@ hr{
     font-weight: bold;
     color: #26386B;
     position: relative;	
+	text-align: center;
 }
 
 .news-popup-overlay{
@@ -609,33 +610,37 @@ div.product-intro{
 }
 
 .product-content .window-style{
-	width: 100%;
-	height: auto;
-	display: flex;
+    width: 100%;
+    height: auto;
+    display: flex;
     flex-direction: column;
-	border: 2px;
-	border-style: solid;
-	border-color: #26386B;
+    border: 2px;
+    border-style: solid;
+    border-color: #26386B;
 }
 
 .window-title{
 	padding: 10px 20px 10px 20px;
-	background-color: #26386B;
-	display: flex;
+    display: flex;
+    flex-direction: row;
 }
 
 .window-title h3{
-	color: #fff;
+	color: #26386B;
 	line-height: 24px;
 	
 }
 
 .window-content{
-	padding: 24px 20px 24px 20px;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	height: 100%;
+	padding: 0 10px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.window-title h6{
+	color: #26386B;
 }
 
 .window-content-item .sub-title{
@@ -969,7 +974,7 @@ div.product-intro{
 }
 
 .representative div{
-	width:100px;
+	width:140px;
 	line-height: 24px;;
 }
 
@@ -1074,7 +1079,7 @@ div.product-intro{
 }
 
 .necessary-box{
-    width: 46px;
+    width: 67px;
     height: 24px;
     color: #fff;
     font-size: 14px;
@@ -1140,8 +1145,8 @@ div.product-intro{
 }
 
 .inquires-value .checkbox input{
-    width: 30px;
-	height: 30px;
+    width: 20px;
+	height: 20px;
 	margin-right: 10px;
 }
 
@@ -1402,6 +1407,7 @@ input.contact-checkbox{
 }
 
 .privacy-page{
+	padding-top: 150px;
 	display: flex;
     flex-direction: column;
     align-items: center;
@@ -1542,6 +1548,12 @@ input.contact-checkbox{
 	display: block;
 	margin-bottom: 10px;
 	color: red;
+}
+
+@media all and (max-width: 960px){
+	.window-title{
+    	flex-direction: column;
+	}
 }
 
 @media all and (max-width: 650px) {
@@ -1763,10 +1775,11 @@ input.contact-checkbox{
   }
 
   .footer-navbar .language-change{
-    width: 100%;
+	width: 100%;
     text-align: center;
     padding: 20px 0;
-    display: block;
+    display: flex;
+    justify-content: center;
   }
 
   .social-icons{
@@ -1952,6 +1965,7 @@ input.contact-checkbox{
   }
 
   .privacy-page-content{
+	padding-top: 120px;
 	width: 89.3%;
   }
 }

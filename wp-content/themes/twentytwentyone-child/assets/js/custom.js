@@ -127,11 +127,7 @@ $(document).ready(function(){
       e.preventDefault();
     }
   })
-
-  $('.lang-en').click(function(){
-    $('.lang-en').addClass(" active");
-  })
-
+  
   // When the user clicks the button, open the modal
   $(".news-category").click(function() {
     var modal = $("#news-popup-overlay");
@@ -162,9 +158,9 @@ $(document).ready(function(){
 
 // When the user clicks on <span> (x), close the modal
   $(".popup-close").click(function() {
-    $("#news-popup-overlay")[0].style.display = "none";
-    $("#contactus-popup-overlay")[0].style.display = "none";
-    $("#contactus-verify-overlay")[0].style.display = "none";
+    $("#news-popup-overlay").hide();
+    $("#contactus-popup-overlay").hide();
+    $("#contactus-verify-overlay").hide();
     $("body").css('overflow', "auto");
   });
 
@@ -223,14 +219,14 @@ $(document).ready(function(){
     }
 
     if($("#inquiry-email").val() == ""){
-      $(".email-error").text("このフイールドを入力してください");
+      $(".email-error").text("このフイールドを入力してください (please input this field)");
       $(".email-error").show();
       $("#inquiry-email").focus();
       valid_status = 0;
     } else{
       var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
       if(!regex.test($("#inquiry-email").val())){
-        $(".email-error").text("「@」を含むメールアドレスを入力してください");
+        $(".email-error").text("「@」を含むメールアドレスを入力してください (Please input with 「@」)");
         $(".email-error").show();
         $("#inquiry-email").focus();
         alid_status = 0;
@@ -288,7 +284,7 @@ $(document).ready(function(){
         $('#contactus-verify-overlay').show();
       },
       (error) => {
-        $('.contactus-Verify-content .inquires-description').text("申し訳ございませんが、お問い合わせのリクエストは失敗しました。もう一度やり直してください。");
+        $('.contactus-Verify-content .inquires-description').text("申し訳ございませんが、お問い合わせのリクエストは失敗しました。もう一度やり直してください。(I am sorry, but faild your inquiry request. Please try again.");
         $('#contactus-verify-overlay').show();
       }
     );
@@ -323,7 +319,7 @@ $(document).ready(function(){
     } else{
       var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
       if(!regex.test($("#inquiry-email").val())){
-        $(".email-error").text("「@」を含むメールアドレスを入力してください");
+        $(".email-error").text("「@」を含むメールアドレスを入力してください (Please input with 「@」)");
         $(".email-error").show();
         $("#inquiry-email").focus();
         valid_status = 0;
