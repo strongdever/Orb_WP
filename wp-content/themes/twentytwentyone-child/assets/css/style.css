@@ -68,23 +68,15 @@ body{
 	text-decoration: none;
 }
 
-.nav a:hover{
-	background-color: #ddd;
-}
-
-.nav a:active{
-	background-color: #ccc;
-}
-
 .nav a.first{
 	margin-left: -16px;
 }
 
-.nav a:hover{
+.nav ul li a:hover{
 	background-color: #BCD8F1;
 }
 
-.nav a:active {
+.nav ul li a:active {
 	background-color: #6cf;
 }
 
@@ -92,7 +84,7 @@ body{
     display: flex;
     padding: 0 40px 0 58px;
     font-family: 'Lato';
-    font-weight: 700;
+    font-weight: 800;
     font-size: 16px;
     color: #333333;
     flex-direction: row;
@@ -100,6 +92,15 @@ body{
     justify-content: flex-end;
 }
 
+.language-change a{
+	font-weight: 700;
+    padding: 0;
+    color: #26386B;
+}
+
+.language-change a:hover{
+	background-color: none;
+}
 
 .lang{
 	cursor: pointer;
@@ -567,7 +568,7 @@ div.product-intro{
 	text-align: left;
 	padding-top: 5px;
 	padding-bottom: 10px;
-	text-align: justify;
+	overflow-wrap: break-word;
 }
 
 .product-content .number{
@@ -1893,11 +1894,13 @@ input.contact-checkbox{
 
   .responsive .nav{
 	position: absolute;
-	width: 89.3%;
+    width: 89.3%;
     height: 100%;
     display: flex;
     top: 0;
     align-items: center;
+    justify-content: center;
+    flex-direction: column;
   }
 
   .responsive .nav ul{
@@ -1923,13 +1926,13 @@ input.contact-checkbox{
   }
 
   .responsive .language-change{
-    display: flex;
-	flex-direction: row;
+	display: flex;
+    flex-direction: row;
     width: 100%;
     text-align: center;
-	justify-content: center;
-    position: absolute;
-    top: 480px;
+    justify-content: center;
+    position: relative;
+    margin-top: 20px;
 	padding: 0;
   }
 
