@@ -905,8 +905,9 @@ div.product-intro{
 	justify-content: center;
 }
 
-
-
+.profile-representative-en .profile-classify{
+	width: 147px;
+}
 .profile-content hr{
 	width: 100%;
 	height: 1px;
@@ -915,7 +916,7 @@ div.product-intro{
 }
 
 .profile-classify{
-	width: 147px;
+	width: 150px;
 }
 
 .profile-value{
@@ -931,27 +932,11 @@ div.product-intro{
 	padding-bottom: 17.5;
 }
 
-.profile-record{
-	width: 100%;
-	height: fit-content;
-	padding: 19.5px 0 19.5px 0;
-	display: flex;
-	flex-direction: row;
-	align-items: flex-start;
-	justify-content: center;
-}
-
-
-
 .profile-content hr{
 	width: 100%;
 	height: 1px;
 	margin: 0;
 	background: #CDD6DD;
-}
-
-.profile-classify{
-	width: 147px;
 }
 
 .profile-value{
@@ -974,8 +959,8 @@ div.product-intro{
 	padding-bottom: 5px
 }
 
-.representative div{
-	width:140px;
+.representative-name{
+	width:147px;
 	line-height: 24px;;
 }
 
@@ -1149,6 +1134,7 @@ div.product-intro{
     width: 20px;
 	height: 20px;
 	margin-right: 10px;
+	cursor: pointer;
 }
 
 input.contact-checkbox{
@@ -1534,6 +1520,13 @@ input.contact-checkbox{
 	opacity: 1;
 }
 
+.contact-spinner{
+	display: none;
+	position: absolute;
+    left: 20px;
+	font-size: 32px;
+}
+
 .input-variable{
 	width: 63.5%;
     background: none;
@@ -1698,10 +1691,6 @@ input.contact-checkbox{
 	width: 89.3%;
   }
 
-  .profile-classify{
-	width: 28%;
-  }
-
   .profile-content .last{
 	flex-direction: column;
   }
@@ -1720,6 +1709,22 @@ input.contact-checkbox{
 
   .profile-value .last{
 	flex-direction: row;
+  }
+
+  div.profile-representative-en{
+	flex-direction: column;
+  }
+
+  div.profile-representative-en .profile-value div{
+	flex-direction: row;
+  }
+
+  .representative-name{
+	width: 170px;
+  }
+
+  .representative-value{
+	width: 190px;
   }
 
   .inquires{
@@ -1855,6 +1860,8 @@ input.contact-checkbox{
     border-radius: 2px;
     right: 20px;
   }
+
+
 
   .responsive .btn-close{
 	display: flex;

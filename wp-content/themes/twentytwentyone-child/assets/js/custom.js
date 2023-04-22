@@ -104,6 +104,16 @@ function forResponsive(){
 }
 
 
+let freezeClic = false; // just modify that variable to disable all clics events
+document.addEventListener("click", freezeClicFn, true);
+//function for the prohibit the mouse click event when the user send acontact request
+function freezeClicFn(e) {
+  if (freezeClic) {
+    e.stopPropagation();
+    e.preventDefault();
+  }
+}
+
 $(document).ready(function(){
 
   //language exchange
@@ -143,12 +153,6 @@ $(document).ready(function(){
     modal.show();
     $("body").css('overflow', "hidden");
   });
-  
-//contactus verify button click event
-  $('#contactus-sending').click(function(){
-    $('#contactus-popup-overlay').hide();
-    $("body").css('overflow', "hidden");
-  })
 
 //contactus modify button click event
   $('.contactus-modify').click(function(){
@@ -203,7 +207,21 @@ $(document).ready(function(){
 
   //Contact us Validation start-----------
   $("#contact-by-email").prop('checked', true);
-  $("#contact-by-phone").prop('checked', true);
+  $("#contact-by-phone").prop('checked', false);
+  $("#contact-by-phone").click(function(){
+    if($(this).is(":checked")){
+      $("#contact-by-email").prop('checked', false);
+    } else{
+      $(this).prop('checked', true);
+    }
+  });
+  $("#contact-by-email").click(function(){
+    if($(this).is(":checked")){
+      $("#contact-by-phone").prop('checked', false);
+    } else{
+      $(this).prop('checked', true);
+    }
+  });
   var valid_status = 1;
   $('#contact-detail').click(function(){  //indetail button
     if($("#inquiry-detail").val() == ""){
@@ -219,19 +237,20 @@ $(document).ready(function(){
     }
 
     if($("#inquiry-email").val() == ""){
-      $(".email-error").text("このフイールドを入力してください (please input this field)");
-      $(".email-error").show();
+      $(".email-error1").show();
+      $(".email-error2").hide();
       $("#inquiry-email").focus();
       valid_status = 0;
     } else{
       var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
       if(!regex.test($("#inquiry-email").val())){
-        $(".email-error").text("「@」を含むメールアドレスを入力してください (Please input with 「@」)");
-        $(".email-error").show();
+        $(".email-error1").hide();
+        $(".email-error2").show();
         $("#inquiry-email").focus();
         alid_status = 0;
       } else{
-        $(".email-error").hide();
+        $(".email-error1").hide();
+        $(".email-error2").hide();
       }
     }
 
@@ -254,16 +273,15 @@ $(document).ready(function(){
       modal.find('.popup-user-name').val($("#inquiry-name").val());
       modal.find('.popup-user-email').val($("#inquiry-email").val());
       if($('#contact-by-phone').is(":checked")){
-        modal.find('.popup-phone-method').val("電話で折り返してほしい");
+        modal.find('.popup-phone-method').val($('#contact-method1').text());
         modal.find('.popup-phone-method').show();
-      } else{
-        modal.find('.popup-phone-method').hide();
-      }
-      if($('#contact-by-email').is(":checked")){
-        modal.find('.popup-email-method').val("メールで折り返してほしい");
-        modal.find('.popup-email-method').show();
-      } else{
+        modal.find('.popup-email-method').val("");
         modal.find('.popup-email-method').hide();
+      } else{
+        modal.find('.popup-email-method').val($('#contact-method2').text());
+        modal.find('.popup-email-method').show();
+        modal.find('.popup-phone-method').val("");
+        modal.find('.popup-phone-method').hide();
       }
       modal.find('.popup-inquire-detail').val($("#inquiry-detail").val());
       modal.show();
@@ -279,12 +297,42 @@ $(document).ready(function(){
     const serviceID = "service_3ovt3mh";
     const templateID = "template_jp5cmc7";
     // send the email here
+    $(".contact-spinner").show();
     emailjs.sendForm(serviceID, templateID, this).then(
       (response) => {
+        freezeClic = false;
+        $('#contactus-popup-overlay').hide();
+        $("body").css('overflow', "hidden");
+        $(".contact-spinner").hide();
+        $('#contactus-verify-overlay').show();
+        if($('.lang-jp').hasClass("active")){
+          error_message = "お問合せ頂きましてありがとうございました。お問合せ内容に関しては、1-2営業日にてご連絡申し上げます。";
+          $('.contactus-Verify-content .inquires-description').css('text-align', "start");
+          $(".close-text").text("閉じる");
+        } else{
+          error_message = "Thank you for contacting us. We will contact you within 1-2 business days regarding your inquiry.";
+          $('.contactus-Verify-content .inquires-description').css('text-align', "center");
+          $(".close-text").text("Close");
+        }
+        $('.contactus-Verify-content .inquires-description').text(error_message);
         $('#contactus-verify-overlay').show();
       },
       (error) => {
-        $('.contactus-Verify-content .inquires-description').text("申し訳ございませんが、お問い合わせのリクエストは失敗しました。もう一度やり直してください。(I am sorry, but faild your inquiry request. Please try again.");
+        freezeClic = false;
+        $('#contactus-popup-overlay').hide();
+        $("body").css('overflow', "hidden");
+        $(".contact-spinner").hide();
+        var error_message = "";
+        if($('.lang-jp').hasClass("active")){
+          error_message = "申し訳ございませんが、お問い合わせのリクエストは失敗しました。もう一度やり直してください。";
+          $('.contactus-Verify-content .inquires-description').css('text-align', "start");
+          $(".close-text").text("閉じる");
+        } else{
+          error_message = "I am sorry, but faild your inquiry request. Please try again.";
+          $('.contactus-Verify-content .inquires-description').css('text-align', "center");
+          $(".close-text").text("Close");
+        }
+        $('.contactus-Verify-content .inquires-description').text(error_message);
         $('#contactus-verify-overlay').show();
       }
     );
@@ -312,19 +360,20 @@ $(document).ready(function(){
 
   $("#inquiry-email").on("input", function(){ //when the email is input to
     if($("#inquiry-email").val() == ""){
-      $(".email-error").val("このフイールドを入力してください");
-      $(".email-error").show();
+      $(".email-error1").show();
+      $(".email-error2").hide();
       $("#phonenumber-error").focus();
       valid_status = 0;
     } else{
       var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
       if(!regex.test($("#inquiry-email").val())){
-        $(".email-error").text("「@」を含むメールアドレスを入力してください (Please input with 「@」)");
-        $(".email-error").show();
+        $(".email-error1").hide();
+        $(".email-error2").show();
         $("#inquiry-email").focus();
         valid_status = 0;
       } else{
-        $(".email-error").hide();
+        $(".email-error1").hide();
+        $(".email-error2").hide();
         valid_status = 1;
       }
     }
@@ -348,6 +397,11 @@ $(document).ready(function(){
       $(".inquiry-detail-error").hide();
       var valid_status = 1;
     }
+  })
+
+  //prohibit the control of the whol page when the user send acontact request
+  $("#contactus-sending").click(function(){
+    freezeClic = true;  //prohibit the mouse click event.
   })
   //Contact us Validation end--------------
 })
